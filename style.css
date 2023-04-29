@@ -1,0 +1,49 @@
+#table {
+    height: 100rem; 
+    width: 150rem; 
+    border: 1px solid black; 
+    background-color: rgb(50, 150, 50);
+    position: realtive;
+    display: flex;
+}
+
+#foundation{
+    display: flex;
+    flex-direction: flex-start;
+    border: 1px solid black; 
+    background-color: rgb(41, 123, 41);
+    height: 15rem; 
+    width: 40rem;
+    padding: 1px;
+}
+
+#waste {
+    display: flex;
+    height: 15rem; 
+    width: 12rem; 
+    border: 1px solid red; 
+    position: absolute;
+    right: 200px;
+    padding: 1px;
+}
+
+#stock {
+    display: flex;
+    height: 15rem; 
+    width: 12rem; 
+    border: 1px solid black; 
+    margin-left: auto; 
+    padding: 1px;
+    
+}
+
+
+#tableau > div {
+    height: 15rem; 
+    width: 10rem; 
+    border: 1px solid black;
+    display: inline-block;
+    margin-top: 18rem;
+    margin-right: 400px;
+    margin-left: -350px;
+}
