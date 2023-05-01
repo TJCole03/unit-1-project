@@ -5,44 +5,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script defer src="app.js"></script>
+    <script src="app.js" type="module"></script>
     <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <header>Solitaire</header>
 
-<div class="deck">
-    <h1>A Deck of Cards</h1>
+<button class="start">Start Game</button>
 
-    <a href="javascript:void(0)" class="btn" onclick="renderDeck()">Start Game</a>
-    <div id="deck"></div>
-</div>
+    <container id="table">
+        <top id="table-top">
 
-<container id="table">
+            <section id="foundation">
+                <div class="spade">spade</div>
+                <div class="club">club</div>
+                <div class="heart">heart</div>
+                <div class="diamond">diamond</div>
+            </section>
 
-    <section id="foundation">
-        <div class="spade"></div>
-        <div class="club"></div>
-        <div class="heart"></div>
-        <div class="diamond"></div>
-    </section>
+            <div id="waste">waste</div>
 
-    <div id="waste">waste</div>
+            <div id="stock">stock</div>
+        </top>
 
-    <div id="stock">stock</div>
+        <div id="tableau">
+            <div class="space-1">1</div>
+            <div class="space-2">2</div>
+            <div class="space-3">3</div>
+            <div class="space-4">4</div>
+            <div class="space-5">5</div>
+            <div class="space-6">6</div>
+            <div class="space-7">7</div>
+        </div>
+       <!-- <div class="card red" data-value="9 ♥️">
+            ♥️
+        </div>  -->
+        
 
-    <div id="tableau">
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
-        <div>4</div>
-        <div>5</div>
-        <div>6</div>
-        <div>7</div>
-    </div>
-
-
-</container> 
+    </container> 
 
 
 </body>

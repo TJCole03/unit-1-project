@@ -1,13 +1,25 @@
-#table {
-    height: 100rem; 
-    width: 150rem; 
-    border: 1px solid black; 
-    background-color: rgb(50, 150, 50);
-    position: realtive;
-    display: flex;
+* {
+    box-sizing: border-box;
 }
 
-#foundation{
+body {
+    margin: 0;
+    display: grid; 
+}
+
+#table {
+    height: 50rem; 
+    width: 75rem; /*3,750 sq rem in digital area*/
+    border: 1px solid black; 
+    background-color: rgb(50, 150, 50);
+}
+
+#table-top {
+    display: flex; 
+    flex-direction: row;
+}
+
+section{
     display: flex;
     flex-direction: flex-start;
     border: 1px solid black; 
@@ -17,25 +29,34 @@
     padding: 1px;
 }
 
-#waste {
-    display: flex;
-    height: 15rem; 
-    width: 12rem; 
-    border: 1px solid red; 
-    position: absolute;
-    right: 200px;
-    padding: 1px;
+#foundations > section {
+    display: grid; 
+    grid-template-columns: 1fr, 1fr, 1fr, 1fr; 
+    grid-template-rows: 1fr; 
+
 }
+
 
 #stock {
     display: flex;
     height: 15rem; 
     width: 12rem; 
     border: 1px solid black; 
-    margin-left: auto; 
-    padding: 1px;
-    
 }
+
+#waste {
+    display: flex; 
+    height: 15rem; 
+    width: 12rem; 
+    border: 1px solid red; 
+    right: 200px;
+    padding: 1px;
+}
+
+#waste, #stock {
+    align-self: flex-start;
+}
+
 
 
 #tableau > div {
@@ -43,55 +64,43 @@
     width: 10rem; 
     border: 1px solid black;
     display: inline-block;
-    margin-top: 18rem;
-    margin-right: 400px;
-    margin-left: -350px;
 }
 
-.deck .card {
-    border: solid 1px #aaa; 
-    border-radius: 9px;
-    width: 95px; 
-    height: 150px; 
-    float: left; 
-    background-color: white;
-    padding: 3px, 3px, 3px, 3px;
-    margin: 5px; 
+.deck {
+    height: 100%; 
+    width: 100%; 
+    border: 1px solid black; 
 }
 
-.card2 {
-    width: 50px; 
-    padding: 10px; 
-    border: solid 1px #808080; 
-    background-color: white;
-    display: inline-block;
-    border-radius: 10px;
-    font-size: 22px;
-    text-align: center;
-    margin: 3px;
-    border: solid 3px;
+.card.red {
+    height: 100%;
+    width: 100%;
+    border: 1px solid black;
+    border-radius: .5rem;
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+    font-size: 4rem;
 }
 
-.card .value {
-    font-size: 15pt;
-    font-family: sans-serif;
+.card.black {
+    color: black; 
 }
 
-.card .suit {
-    background-image: url('https://www.thatsoftwaredude.com/images/post/0f631eeb-6c4a-4bfd-9f86-e0a08ae8584b.png');
-    height: 100px; 
-    width: 90px; 
+.card::before, .card::after {
+    position: absolute;
+    content: attr(data-value);
+    font-size: 1rem; 
 }
 
-.card .diamonds {
-    background-position-y: 100px;
+.card::before {
+    top: .5rem; 
+    left: .5rem;
 }
 
-.card .hearts {
-    background-position-x: 90px;
+.card::after {
+    bottom: .5rem; 
+    right: .5rem;
+    transform: rotate(180deg);
 }
 
-.card .clubs {
-    background-position-x: 90px;
-    background-position-y: 100px;
-}

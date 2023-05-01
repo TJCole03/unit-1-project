@@ -79,3 +79,167 @@
 //     }
 // }
 
+function shuffle() {
+
+        //for 1000 turns
+        //switch values of two random cards
+        for (let i = 0; i < 1000; i++){
+            let spot1 = Math.floor((Math.random() * deck.length));
+            let spot2 = Math.floor((Math.random() * deck.length));
+            let tmp = deck[spot1]
+    
+            deck[spot1] = deck[spot2];
+            deck[spot2] = tmp;
+        }
+    shuffle(deck);
+}
+    
+console.log(deck)
+console.log(shuffle(deck))
+
+<div class="deck">
+    <h1>A Deck of Cards</h1>
+
+    <a href="javascript:void(0)" class="btn" onclick="renderDeck()">Start Game</a>
+    <div id="deck"></div>
+</div>
+
+.deck .card {
+    border: solid 1px #aaa; 
+    border-radius: 9px;
+    width: 95px; 
+    height: 150px; 
+    float: left; 
+    background-color: white;
+    padding: 3px, 3px, 3px, 3px;
+    margin: 5px; 
+}
+
+.card2 {
+    width: 50px; 
+    padding: 10px; 
+    border: solid 1px #808080; 
+    background-color: white;
+    display: inline-block;
+    border-radius: 10px;
+    font-size: 22px;
+    text-align: center;
+    margin: 3px;
+    border: solid 3px;
+}
+
+.card .value {
+    font-size: 15pt;
+    font-family: sans-serif;
+}
+
+.card .suit {
+    background-image: url('https://www.thatsoftwaredude.com/images/post/0f631eeb-6c4a-4bfd-9f86-e0a08ae8584b.png');
+    height: 100px; 
+    width: 90px; 
+}
+
+.card .diamonds {
+    background-position-y: 100px;
+}
+
+.card .hearts {
+    background-position-x: 90px;
+}
+
+.card .clubs {
+    background-position-x: 90px;
+    background-position-y: 100px;
+}
+
+table {
+    height: 100rem; 
+    width: 150rem; 
+    border: 1px solid black; 
+    background-color: rgb(50, 150, 50);
+    position: realtive;
+    display: flex;
+}
+
+#foundation{
+    display: flex;
+    flex-direction: flex-start;
+    border: 1px solid black; 
+    background-color: rgb(41, 123, 41);
+    height: 15rem; 
+    width: 40rem;
+    padding: 1px;
+}
+
+#waste {
+    display: flex;
+    height: 15rem; 
+    width: 12rem; 
+    border: 1px solid red; 
+    position: absolute;
+    right: 200px;
+    padding: 1px;
+}
+
+#stock {
+    display: flex;
+    height: 15rem; 
+    width: 12rem; 
+    border: 1px solid black; 
+    margin-left: auto; 
+    padding: 1px;
+    
+}
+
+
+#tableau > div {
+    height: 15rem; 
+    width: 10rem; 
+    border: 1px solid black;
+    display: inline-block;
+    margin-top: 18rem;
+    margin-right: 400px;
+    margin-left: -350px;
+}
+
+#foundation{
+    display: flex;
+    flex-direction: flex-start;
+    border: 1px solid black; 
+    background-color: rgb(41, 123, 41);
+    height: 15rem; 
+    width: 40rem;
+    padding: 1px;
+}
+
+#waste {
+    display: flex;
+    height: 15rem; 
+    width: 12rem; 
+    border: 1px solid red; 
+    position: absolute;
+    right: 200px;
+    padding: 1px;
+}
+
+#stock {
+    display: flex;
+    height: 15rem; 
+    width: 12rem; 
+    border: 1px solid black; 
+    margin-left: auto; 
+    padding: 1px;
+    
+}
+
+
+#tableau > div {
+    height: 15rem; 
+    width: 10rem; 
+    border: 1px solid black;
+    display: inline-block;
+    margin-top: 18rem;
+    margin-right: 400px;
+    margin-left: -350px;
+    ;
+}
