@@ -243,3 +243,18 @@ table {
     margin-left: -350px;
     ;
 }
+
+
+button that deals cards in appropritate divs and w/ appropriate amounts 
+click button 
+grab deck
+
+divide like so: split? splice? slice? 
+arr 1 = 1 card 
+arr 2 = 2
+arr 3 = 3
+arr 4 = 4
+arr 5 = 5
+arr 6 = 6
+arr 7 = 7
+stock = 24

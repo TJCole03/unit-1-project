@@ -1,8 +1,23 @@
-import Deck from './deck.js'
+// import Deck from './deck.js'
 const deck = new Deck()
 deck.shuffle()
 console.log(deck.cards)
 
+//CLASSES
 
-stockDeck = document.querySelector("stock")
-stockDeck.appendChild(deck.cards[0].getHTML())
+//VARIABLES 
+let stockDeck = []
+const startGame = document.querySelector('.start-button');
+
+//EVENT LISTENER 
+
+startGame.addEventListener('click', function(dealCards) {
+    console.log('clicked');
+});
+
+function dealCards() {
+    stockDeck = document.querySelector("stock")
+    stockDeck = document.createElement()
+}
+
+

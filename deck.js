@@ -65,13 +65,13 @@
 // //     }
 // //      return this.deck;
 // // }
-
+// https://www.youtube.com/watch?v=NxRwIZWjLtE
 
 const SUITS = ["♠️", "♣️", "♥️", "♦️"]
 const VALUES = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
 
 
-export default class Deck {
+class Deck {
     constructor(cards = newDeck()) {
         this.cards = cards;
     }
@@ -111,7 +111,7 @@ function getColor() {
 
 function getHTML() {
     const cardDiv = document.createElement('div')
-    cardDiv.innerText = this.suit
+    cardDiv.innerText = this.suitn
     cardDiv.classList.add("card", this.color)
     cardDiv.dataset.value = `${this.value} ${this.suit}`
     return cardDiv
