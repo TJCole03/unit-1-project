@@ -67,52 +67,52 @@
 // // }
 // https://www.youtube.com/watch?v=NxRwIZWjLtE
 
-const SUITS = ["♠️", "♣️", "♥️", "♦️"]
-const VALUES = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
+// const SUITS = ["♠️", "♣️", "♥️", "♦️"]
+// const VALUES = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
 
 
-class Deck {
-    constructor(cards = newDeck()) {
-        this.cards = cards;
-    }
+// class Deck {
+//     constructor(cards = newDeck()) {
+//         this.cards = cards;
+//     }
 
-    get numberOfCards() {
-        return this.cards.length
-    }
+//     get numberOfCards() {
+//         return this.cards.length
+//     }
 
-    shuffle() {
-        for (let i = this.numberOfCards - 1; i > 0; i--) { 
-            const newIndex = Math.floor(Math.random() * (i + 1)) //gives us placement inside deck that is somewhere else; 
-            const oldValue = this.cards[newIndex] //flip values at new index w/ current index
-            this.cards[newIndex] = this.cards[i]
-            this.cards[i] = oldValue
-        }
-    }
-}
+//     shuffle() {
+//         for (let i = this.numberOfCards - 1; i > 0; i--) { 
+//             const newIndex = Math.floor(Math.random() * (i + 1)) //gives us placement inside deck that is somewhere else; 
+//             const oldValue = this.cards[newIndex] //flip values at new index w/ current index
+//             this.cards[newIndex] = this.cards[i]
+//             this.cards[i] = oldValue
+//         }
+//     }
+// }
 
-class Card {
-    constructor(suit, value) {
-        this.suit = suit; 
-        this.value = value; 
-    }
-}
+// class Card {
+//     constructor(suit, value) {
+//         this.suit = suit; 
+//         this.value = value; 
+//     }
+// }
 
-function newDeck() {
-    return SUITS.flatMap(suit => { //condenses multiple arrays in arrays into one array. returns an array of arrays, 
-        return VALUES.map(value => { //loop through all our values and map them into array. and then condenses it into a single array 
-            return new Card(suit, value)
-        })
-    })
-}
+// function newDeck() {
+//     return SUITS.flatMap(suit => { //condenses multiple arrays in arrays into one array. returns an array of arrays, 
+//         return VALUES.map(value => { //loop through all our values and map them into array. and then condenses it into a single array 
+//             return new Card(suit, value)
+//         })
+//     })
+// }
 
-function getColor() {
-    return this.suit === "♣️" || this.suit == "♠️" ? 'black' : 'red';
-}
+// function getColor() {
+//     return this.suit === "♣️" || this.suit == "♠️" ? 'black' : 'red';
+// }
 
-function getHTML() {
-    const cardDiv = document.createElement('div')
-    cardDiv.innerText = this.suitn
-    cardDiv.classList.add("card", this.color)
-    cardDiv.dataset.value = `${this.value} ${this.suit}`
-    return cardDiv
-}
+// function getHTML() {
+//     const cardDiv = document.createElement('div')
+//     cardDiv.innerText = this.suitn
+//     cardDiv.classList.add("card", this.color)
+//     cardDiv.dataset.value = `${this.value} ${this.suit}`
+//     return cardDiv
+// }
