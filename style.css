@@ -71,7 +71,7 @@ section{
     display: inline-block;
 }
 
-.deck {
+.card {
     height: 11rem; 
     width: 10rem; 
     border: 1px solid black; 

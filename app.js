@@ -125,19 +125,28 @@ function dealCards() {
         
     } 
     renderCards();
+    getHTML()
 }
 
 function renderCards() {
     stock.textContent = stockPile;
-    col1.textContent = arr0[0]
+    col1.textContent = arr0[0];
     col2.textContent = arr1[0];
     col3.textContent = arr2[0];
     col4.textContent = arr3[0];
     col5.textContent = arr4[0];
     col6.textContent = arr5[0];
     col7.textContent = arr6[0];
-    console.log(arr0[0], arr1[0], arr2[0], arr3[0], arr4[0], arr5[0], arr6[0]);
+    getHTML = () => { //trying to render cards on screen
+        const cardDiv = document.createElement('div')
+        cardDiv.innerText = this.suit
+        cardDiv.classList.add("card", this.color)
+        cardDiv.dataset.value = `${this.value} ${this.suit}`
+        return cardDiv
+        console.log(arr0[0], arr1[0], arr2[0], arr3[0], arr4[0], arr5[0], arr6[0]);
+    }
 }
+
 
 
 
