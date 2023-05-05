@@ -76,10 +76,10 @@ section{
     width: 10rem; 
     border: 1px solid black; 
     color: red;
-    /*background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/a2b99b78814263.5caf8da69d88a.png");
+    background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/a2b99b78814263.5caf8da69d88a.png");
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 100%; */
+    background-size: 100%;
 }
 
 .card.red {
