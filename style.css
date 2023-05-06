@@ -70,15 +70,19 @@ section{
     align-self: flex-start;
 }
 
- #tableau > div {
+#tableau {
+    display: flex;
+}
+
+ /* #tableau > div {
     height: 15rem; 
     width: 10rem; 
     border: 1px solid black;
     display: inline-block;
     cursor: pointer;
-} 
+}  */
 
-.space-1, .space-2, .space-3, .space-4, .space-5, .space-6, .space-7 {
+.space {
     height: 12.5rem; 
     width: 12rem; 
     border: 1px solid black; 
@@ -90,7 +94,22 @@ section{
     flex-direction: row;
     cursor: pointer;
 }
+
+/* @layer .space-2 {
+    main {
+        display: grid;
+    }
+}
+
+@layer {
+    
+} */
+
 /* cards */
+
+    .hide {
+        display:none; 
+    }
 
   .card-back {
     height: 11rem; 

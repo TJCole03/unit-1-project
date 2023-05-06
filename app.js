@@ -77,6 +77,7 @@ const arr4 = [];
 const arr5 = [];
 const arr6 = [];
 
+const tableau = [arr0, arr1, arr2, arr3, arr4, arr5, arr6];
 
 //what I haven't used 
 
@@ -90,13 +91,14 @@ const foundHeart = document.getElementsByClassName('.heart');
 
 //what i've used so far 
 const startGame = document.querySelector('.start-button');
-const col1 = document.querySelector('.space-1');
-const col2 = document.querySelector('.space-2');
-const col3 = document.querySelector('.space-3');
-const col4 = document.querySelector('.space-4');
-const col5 = document.querySelector('.space-5');
-const col6 = document.querySelector('.space-6');
-const col7 = document.querySelector('.space-7');
+const col1 = document.querySelector('#space-1');
+const col2 = document.querySelector('#space-2');
+const col3 = document.querySelector('#space-3');
+const col4 = document.querySelector('#space-4');
+const col5 = document.querySelector('#space-5');
+const col6 = document.querySelector('#space-6');
+const col7 = document.querySelector('#space-7');
+const columns = [col1, col2, col3, col4, col5, col6, col7];
 const back = document.querySelector('.card-back');
 const front = document.querySelector('.card-front');
 const stock = document.querySelector('.stock');
@@ -105,7 +107,7 @@ const waste = document.querySelector('.waste');
 // //card back
 
 // const cardBackImgPath = '/timothycole/back_400w.png'
-//EVENT LISTENERS
+//EVENT LISTENERS 
 
 startGame.addEventListener('click', function () {
     
@@ -136,28 +138,39 @@ function dealCards() {
 }
 
 function renderCards() {
-    for(cards in deck) {
+    columns.forEach((column, idx) => {
         stock.textContent = stockPile.suit + stockPile.value;
         stock.classList.add('card-back');
-        col1.textContent = arr0[0].suit + arr0[0].value
-        col1.classList.add('card-front');
-        col2.textContent = arr1[0].suit + arr1[0].value
-        col2.classList.add('card-back');
-        col3.textContent = arr2[0].suit + arr2[0].value
-        col3.classList.add('card-back');
-        col4.textContent = arr3[0].suit + arr3[0].value
-        col4.classList.add('card-back');
-        col5.textContent = arr4[0].suit + arr4[0].value
-        col5.classList.add('card-back');
-        col6.textContent = arr5[0].suit + arr5[0].value
-        col6.classList.add('card-back');
-        col7.textContent = arr6[0].suit + arr6[0].value
-        col7.classList.add('card-back');
-    }
+        //tableau.forEach(arr => {
+        const arr = tableau[idx]
+        console.log(arr)
+        arr.forEach(card => {
+            const cardDiv = document.createElement('div')
+            cardDiv.textContent = card.suit + card.value
+            cardDiv.classList.add('space'); 
+            //card.classList.add('card-back')
+            column.append(cardDiv)
+        //});
+        })
+           
+    })
+     
+    
+      
+     //loop through each column/array and dynamically implement css code to spread cards out in tableau
+    // tableau.forEach(arr => {
+    //     arr.forEach(card => {
+            
+    //     });  
+    // })
 }
 
+//looping through too many times. need to get it to loop only ONCE; figure out why it's happening 3 times. 
+//lengt of array minus 1 to get index of last card and flip remaining carrds over to start game
+//all other cards except very front cards get cards back. use IF STATEMENT for if not equal to last card, give card class card back; 
 
-//
+
+//array.forEach(function(currentValue, index, arr), thisValue)
 
 //Clicking on stockPile and removing one card at a time from array and pushing it to wastepile
 
