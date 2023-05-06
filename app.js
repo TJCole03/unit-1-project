@@ -41,13 +41,13 @@ function getColor() {
     return this.suit === "♣️" || this.suit == "♠️" ? 'black' : 'red';
 }
 
-function getHTML() {
-    const cardDiv = document.createElement('div')
-    cardDiv.innerText = this.suit
-    cardDiv.classList.add("card", this.color)
-    cardDiv.dataset.value = `${this.value} ${this.suit}`
-    return cardDiv
-}
+// function getHTML() {
+//     const cardDiv = document.createElement('div')
+//     cardDiv.innerText = this.suit
+//     cardDiv.classList.add("card", this.color)
+//     cardDiv.dataset.value = `${this.value} ${this.suit}`
+//     return cardDiv
+// }
 
 const deck = new Deck()
 deck.shuffle()
@@ -135,26 +135,29 @@ function dealCards() {
     renderCards();
 }
 
-function renderCards() { 
-    stock.textContent = stockPile.suit + stockPile.value;
-    stock.classList.add('card-back');
-    col1.textContent = arr0[0].suit + arr0[0].value;
-    col1.classList.add('card-back');
-    col2.textContent = arr1[0].suit + arr1[0].value;
-    col2.classList.add('card-back');
-    col3.textContent = arr2[0].suit + arr2[0].value;
-    col3.classList.add('card-back');
-    col4.textContent = arr3[0].suit + arr3[0].value;
-    col4.classList.add('card-back');
-    col5.textContent = arr4[0].suit + arr4[0].value;
-    col5.classList.add('card-back');
-    col6.textContent = arr5[0].suit + arr5[0].value;
-    col6.classList.add('card-back');
-    col7.textContent = arr6[0].suit + arr6[0].value;
-    col7.classList.add('card-back');
+function renderCards() {
+    for(cards in deck) {
+        stock.textContent = stockPile.suit + stockPile.value;
+        stock.classList.add('card-back');
+        col1.textContent = arr0[0].suit + arr0[0].value
+        col1.classList.add('card-front');
+        col2.textContent = arr1[0].suit + arr1[0].value
+        col2.classList.add('card-back');
+        col3.textContent = arr2[0].suit + arr2[0].value
+        col3.classList.add('card-back');
+        col4.textContent = arr3[0].suit + arr3[0].value
+        col4.classList.add('card-back');
+        col5.textContent = arr4[0].suit + arr4[0].value
+        col5.classList.add('card-back');
+        col6.textContent = arr5[0].suit + arr5[0].value
+        col6.classList.add('card-back');
+        col7.textContent = arr6[0].suit + arr6[0].value
+        col7.classList.add('card-back');
+    }
 }
 
 
+//
 
 //Clicking on stockPile and removing one card at a time from array and pushing it to wastepile
 

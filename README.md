@@ -258,3 +258,16 @@ arr 5 = 5
 arr 6 = 6
 arr 7 = 7
 stock = 24
+
+1. Card deck; process, challenges, references. https://www.youtube.com/watch?v=NxRwIZWjLtE&t=1899s; https://www.thatsoftwaredude.com/content/6196/coding-a-card-deck-in-javascript
+    editiing the HTML to include card-front and card-back as extra divs
+    making the deck in a separate JS file for other projects but moving it into app.js anyway because my intuition told me it was getting buggy 
+2. Game board setup. How i separated my divs and table. how i used grid and flexbox. 
+3. arrays
+    getting into 8 different arrays 
+    splice method 
+    why i use arrays 
+4. card rendering
+    how an object like a card gets physically rendered on screen. 
+        dot notation 
+        not getting right cards up front/ does not reflect array; 
