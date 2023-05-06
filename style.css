@@ -13,10 +13,11 @@ body {
 }
 
 #table {
-    height: 50rem; 
-    width: 75rem; /*3,750 sq rem in digital area*/
+    height: 75rem; 
+    width: 100rem; 
     border: 1px solid black; 
     background-color: rgb(50, 150, 50);
+    
 }
 
 #table-top {
@@ -42,75 +43,118 @@ section{
 }
 
 
-#stock {
+.stock {
     display: flex;
     height: 15rem; 
     width: 12rem; 
     border: 1px solid black; 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    border-radius: .5rem;
+    color: rgba(243, 246, 227, 0.999);
+    cursor: pointer;
 }
 
-#waste {
+.waste {
     display: flex; 
     height: 15rem; 
     width: 12rem; 
     border: 1px solid red; 
     right: 200px;
     padding: 1px;
+    cursor: pointer;
 }
 
 #waste, #stock {
     align-self: flex-start;
 }
 
-
-
-#tableau > div {
+ #tableau > div {
     height: 15rem; 
     width: 10rem; 
     border: 1px solid black;
     display: inline-block;
+    cursor: pointer;
+} 
+
+.space-1, .space-2, .space-3, .space-4, .space-5, .space-6, .space-7 {
+    height: 12.5rem; 
+    width: 12rem; 
+    border: 1px solid black; 
+    color: black;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    display: inline-block; 
+    flex-direction: row;
+    cursor: pointer;
 }
 
-.card {
+  .card-back {
+    height: 11rem; 
+    width: 8rem; 
+    border: 1px solid black; 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    font-size: 0.001rem; 
+    border-radius: .5rem;
+    color: rgba(243, 246, 227, 0.999);
+    background-image: url('https://sothebys-md.brightspotcdn.com/53/65/0b797770488d85b54c3c2d1cfae1/047n10777-c6z6x-t2-01-cropped.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    font-display: none;
+}  
+
+.card-front {
     height: 11rem; 
     width: 10rem; 
     border: 1px solid black; 
-    color: red;
-    background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/a2b99b78814263.5caf8da69d88a.png");
+    font-size: 4rem;
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100%;
 }
 
-.card.red {
-    height: 100%;
-    width: 100%;
+.card-front, .card-back > #tableau {
+    position: relative;
+    height: 11rem;
+    width: 8rem;
     border: 1px solid black;
     border-radius: .5rem;
     display: flex; 
     justify-content: center;
     align-items: center; 
     font-size: 4rem;
-}
+    background-color: rgba(15, 89, 209, 0.999);;
 
+}
+.card.red {
+    color: red;
+}
 .card.black {
     color: black; 
 }
 
-.card::before, .card::after {
+.card-front::before, .card-front::after { /* before and after the NUMBER and SUIT not the flip */
     position: absolute;
     content: attr(data-value);
     font-size: 1rem; 
 }
 
-.card::before {
+.card-front::before {
     top: .5rem; 
     left: .5rem;
 }
 
-.card::after {
+.card-front::after {
     bottom: .5rem; 
     right: .5rem;
     transform: rotate(180deg);
 }
+
+
+
 
