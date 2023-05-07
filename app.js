@@ -62,12 +62,12 @@ const startPile = [];
 const stockPile =  [];
 const wastePile = [];
 
-const foundations = {
-    spade: [],
-    diamond: [],
-    club: [],
-    heart: [],
-}
+const spade = [];
+const heart = [];
+const club = [];
+const diamond = [];
+
+const foundations = [spade, heart, club, diamond]
 
 const arr0 = [];
 const arr1 = [];
@@ -78,6 +78,9 @@ const arr5 = [];
 const arr6 = [];
 
 const tableau = [arr0, arr1, arr2, arr3, arr4, arr5, arr6];
+
+const playedCards =
+    'tab .card:last-child';
 
 //what I haven't used 
 
@@ -120,9 +123,9 @@ function dealCards() {
     for (cards in deck) {
         //deck.cards.length -= 24;
         //deck.cards.splice(0, 24);
-        const deal = stockPile.push(...deck.cards.splice(0, 24));//can push 24 cards to stock array but cant ge
-        //console.log(deck.cards)
-        const deal2 = arr6.push(...deck.cards.splice(0, 7));//7
+        const deal = stockPile.push(deck.cards.length -= 24);//can push 24 cards to stock array but cant ge
+        console.log(deck.cards)
+        const deal2 = arr6.push(...deck.cards.splice(0,7));//7
         //console.log(deck.cards.length)
         const deal3 = arr5.push(...deck.cards.splice(0, 6)); //6
         //console.log(deck.cards.length)
@@ -141,6 +144,7 @@ function renderCards() {
     columns.forEach((column, idx) => {
         stock.textContent = stockPile.suit + stockPile.value;
         stock.classList.add('card-back');
+
         //tableau.forEach(arr => {
         const arr = tableau[idx]
         console.log(arr)
@@ -148,7 +152,7 @@ function renderCards() {
             const cardDiv = document.createElement('div')
             cardDiv.textContent = card.suit + card.value
             cardDiv.classList.add('space'); 
-            //card.classList.add('card-back')
+            // card.classList.append('card-back')
             column.append(cardDiv)
         //});
         })

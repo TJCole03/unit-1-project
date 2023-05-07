@@ -12,6 +12,7 @@ body {
     display: grid; 
 }
 /* sections */
+
 #table {
     height: 75rem; 
     width: 100rem; 
@@ -70,7 +71,11 @@ section{
     align-self: flex-start;
 }
 
-#tableau {
+.tableau {
+    display: flex;
+}
+
+.tab {
     display: flex;
 }
 
@@ -136,6 +141,7 @@ section{
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100%;
+    background-color: white;
 }
 
 .card-front, .card-back > #tableau {
@@ -153,9 +159,11 @@ section{
 }
 .card.red {
     color: red;
+    background-color: white;
 }
 .card.black {
     color: black; 
+    background-color: white;
 }
 
 .card-front::before, .card-front::after { /* before and after the NUMBER and SUIT not the flip */
