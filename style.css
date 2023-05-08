@@ -97,7 +97,6 @@ section{
     background-size: 100%;
     display: inline-block; 
     flex-direction: row;
-    cursor: pointer;
 }
 
 /* @layer .space-2 {
@@ -116,9 +115,32 @@ section{
         display:none; 
     }
 
+.card {
+    position: relative;
+    border: 1px solid black;
+    border-radius: .5rem;
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+    font-size: 4rem;
+    background-color: rgb(151, 151, 183);
+    backface-visibility: hidden;
+    } 
+
+.card-front, .card-back  {
+        position: relative;
+        height: 11rem;
+        width: 10rem;
+        border: 1px solid black;
+        border-radius: .5rem;
+        display: flex; 
+        justify-content: center;
+        align-items: center; 
+    } 
+
   .card-back {
     height: 11rem; 
-    width: 8rem; 
+    width: 10rem; 
     border: 1px solid black; 
     display: flex; 
     justify-content: center;
@@ -131,23 +153,17 @@ section{
     background-position: center;
     background-size: cover;
     font-display: none;
+    cursor: pointer;
 }  
 
-.card-front {
-    height: 11rem; 
-    width: 10rem; 
-    border: 1px solid black; 
-    font-size: 4rem;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 100%;
-    background-color: white;
+.card-front:hover {
+    transform: rotateY(180deg);
 }
 
-.card-front, .card-back > #tableau {
+.card-front {
     position: relative;
     height: 11rem;
-    width: 8rem;
+    width: 10rem;
     border: 1px solid black;
     border-radius: .5rem;
     display: flex; 
@@ -155,8 +171,9 @@ section{
     align-items: center; 
     font-size: 4rem;
     background-color: rgba(15, 89, 209, 0.999);;
-
+    backface-visibility: hidden;
 }
+
 .card.red {
     color: red;
     background-color: white;
@@ -183,6 +200,7 @@ section{
     transform: rotate(180deg);
 }
 
-
-
+.flipCard {
+    transform: rotateY(180deg);
+}
 

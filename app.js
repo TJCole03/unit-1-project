@@ -102,8 +102,9 @@ const col5 = document.querySelector('#space-5');
 const col6 = document.querySelector('#space-6');
 const col7 = document.querySelector('#space-7');
 const columns = [col1, col2, col3, col4, col5, col6, col7];
-const back = document.querySelector('.card-back');
-const front = document.querySelector('.card-front');
+const playingCard = document.getElementById('#card')
+const cardBack = document.querySelector('.card-back card');
+const cardFront = document.querySelector('.card-front card');
 const stock = document.querySelector('.stock');
 const waste = document.querySelector('.waste');
 
@@ -117,13 +118,15 @@ startGame.addEventListener('click', function () {
     dealCards();
     console.log('clicked', dealCards(), [stockPile], [arr6], [arr5], [arr4], [arr3], [arr2], [arr1], [arr0], renderCards());
 });
+startGame.removeEventListener('click', dealCards());
+console.log('removed')
 //DEALING CARDS IN APPROPRIATE PLACES
 
 function dealCards() {
     for (cards in deck) {
         //deck.cards.length -= 24;
         //deck.cards.splice(0, 24);
-        const deal = stockPile.push(deck.cards.length -= 24);//can push 24 cards to stock array but cant ge
+        const deal = stockPile.push(deck.cards.splice(0,24));//can push 24 cards to stock array but cant ge
         console.log(deck.cards)
         const deal2 = arr6.push(...deck.cards.splice(0,7));//7
         //console.log(deck.cards.length)
@@ -134,7 +137,9 @@ function dealCards() {
         const deal6 = arr2.push(...deck.cards.splice(0,3)); //3
         const deal7 = arr1.push(...deck.cards.splice(0,2)); //2
         const deal8 = arr0.push(...deck.cards.splice(0,1)); //1
-        //return deal, deal2, deal3, deal4, deal5, deal6, deal7, deal8; 
+        //return deal, deal2, deal3, deal4, deal5, deal6, deal7, deal8;
+        
+        //gives me 28 cards in stock pile (need 24) but have proper number of cards in tableau. 
         
     } 
     renderCards();
@@ -145,29 +150,47 @@ function renderCards() {
         stock.textContent = stockPile.suit + stockPile.value;
         stock.classList.add('card-back');
 
-        //tableau.forEach(arr => {
+        //tableau.forEach(arr => {//});
         const arr = tableau[idx]
         console.log(arr)
         arr.forEach(card => {
             const cardDiv = document.createElement('div')
             cardDiv.textContent = card.suit + card.value
-            cardDiv.classList.add('space'); 
-            // card.classList.append('card-back')
+            cardDiv.classList.add('card-back'); 
+            //cardDiv.classList.appendChild('card-front')
             column.append(cardDiv)
-        //});
         })
-           
+     //looping through current array, identifying last card in array, and switching classes from card-back to card-front      
+        // let lastCard = cardDiv.lastIndexOf(tableau => {
+        //     cardDiv.getElementById('card-front')
+        // })
+        // const tableau[0] = getElementsByClassName('card-front');
+        //trying to get the card by array index value and switch it to the front. 
     })
-     
-    
-      
-     //loop through each column/array and dynamically implement css code to spread cards out in tableau
-    // tableau.forEach(arr => {
-    //     arr.forEach(card => {
-            
-    //     });  
-    // })
 }
+
+
+
+
+//      //flipping the cards
+
+   
+//  cardBack.addEventListener('click', flipCard); //{
+// //     // flipCard();
+// //             console.log('clicked');
+// //         }; 
+        
+// function flipCard() {
+//     cardBack.classList.toggle("card-back")
+//     }
+       
+//      //loop through each column/array and dynamically implement css code to spread cards out in tableau
+//     // tableau.forEach(arr => {
+//     //     arr.forEach(card => {
+            
+//     //     });  
+//     // })
+
 
 //looping through too many times. need to get it to loop only ONCE; figure out why it's happening 3 times. 
 //lengt of array minus 1 to get index of last card and flip remaining carrds over to start game

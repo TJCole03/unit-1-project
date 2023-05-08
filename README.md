@@ -271,3 +271,81 @@ stock = 24
     how an object like a card gets physically rendered on screen. 
         dot notation 
         not getting right cards up front/ does not reflect array; 
+
+
+css and HTML for flip cards 
+
+      <!-- <div class="card-flip">
+                <div class="card-flip-inner">
+                    <div class="card-flip-front card-front"></div>
+                    <div class="card-flip-back card-back">Back</div>
+                    
+                    </div>
+                </div>
+            </div> -->
+FLIPPING THE CARDS
+
+/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+ .card-flip {
+    background-color: transparent;
+    width: 300px;
+    height: 200px;
+    border: 1px solid #f1f1f1;
+    perspective: 1000px;  /* Remove this if you don't want the 3D effect   */
+} 
+  
+  /* This container is needed to position the front and back side */
+  .card-flip-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  } 
+  
+  /* Do an horizontal flip when you move the mouse over the flip box container */
+   .card-flip:hover .card-flip-inner {
+    transform: rotateY(180deg);
+  }
+   
+  /* Position the front and back side */
+  .card-flip-front, .card-flip-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /*Safari  */
+    backface-visibility: hidden; 
+} 
+  
+  /* Style the back side */
+  .card-flip-back {
+    height: 11rem; 
+    width: 10rem; 
+    border: 1px solid black; 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    font-size: .0001rem; 
+    border-radius: .5rem;
+    color: rgba(243, 246, 227, 0.999);
+    background-image: url('https://sothebys-md.brightspotcdn.com/53/65/0b797770488d85b54c3c2d1cfae1/047n10777-c6z6x-t2-01-cropped.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    font-display: none;
+  } 
+
+  /* Style the front side (fallback if image is missing) */
+ .card-flip-front {
+    height: 11rem; 
+    width: 10rem; 
+    border: 1px solid black; 
+    font-size: 4rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    background-color: white;
+  } 
+
+  data-value="6 ♥️ 6♥️
