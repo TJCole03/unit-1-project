@@ -94,6 +94,7 @@ const foundHeart = document.getElementsByClassName('.heart');
 
 //what i've used so far 
 const startGame = document.querySelector('.start-button');
+const spaces = document.querySelectorAll('.space')
 const col1 = document.querySelector('#space-1');
 const col2 = document.querySelector('#space-2');
 const col3 = document.querySelector('#space-3');
@@ -103,8 +104,8 @@ const col6 = document.querySelector('#space-6');
 const col7 = document.querySelector('#space-7');
 const columns = [col1, col2, col3, col4, col5, col6, col7];
 const playingCard = document.getElementById('#card')
-const cardBack = document.querySelector('.card-back card');
-const cardFront = document.querySelector('.card-front card');
+const cardBack = document.querySelector('.card-back');
+const cardFront = document.querySelector('.card-front');
 const stock = document.querySelector('.stock');
 const waste = document.querySelector('.waste');
 
@@ -116,9 +117,9 @@ const waste = document.querySelector('.waste');
 startGame.addEventListener('click', function () {
     
     dealCards();
-    console.log('clicked', dealCards(), [stockPile], [arr6], [arr5], [arr4], [arr3], [arr2], [arr1], [arr0], renderCards());
+    console.log('clicked', [stockPile], [arr6], [arr5], [arr4], [arr3], [arr2], [arr1], [arr0]);
 });
-startGame.removeEventListener('click', dealCards());
+//startGame.removeEventListener('click', dealCards());
 console.log('removed')
 //DEALING CARDS IN APPROPRIATE PLACES
 
@@ -143,6 +144,7 @@ function dealCards() {
         
     } 
     renderCards();
+    flipLastCard();
 }
 
 function renderCards() {
@@ -153,59 +155,37 @@ function renderCards() {
         //tableau.forEach(arr => {//});
         const arr = tableau[idx]
         console.log(arr)
-        arr.forEach(card => {
+        arr.forEach((card, i) => {
             const cardDiv = document.createElement('div')
             cardDiv.textContent = card.suit + card.value
             cardDiv.classList.add('card-back'); 
-            //cardDiv.classList.appendChild('card-front')
+            tableau[idx][i].node = cardDiv; 
             column.append(cardDiv)
-        })
-     //looping through current array, identifying last card in array, and switching classes from card-back to card-front      
-        // let lastCard = cardDiv.lastIndexOf(tableau => {
-        //     cardDiv.getElementById('card-front')
-        // })
-        // const tableau[0] = getElementsByClassName('card-front');
-        //trying to get the card by array index value and switch it to the front. 
+        })   
+        
     })
 }
 
-
-
-
-//      //flipping the cards
-
-   
-//  cardBack.addEventListener('click', flipCard); //{
-// //     // flipCard();
-// //             console.log('clicked');
-// //         }; 
-        
-// function flipCard() {
-//     cardBack.classList.toggle("card-back")
-//     }
-       
-//      //loop through each column/array and dynamically implement css code to spread cards out in tableau
-//     // tableau.forEach(arr => {
-//     //     arr.forEach(card => {
-            
-//     //     });  
-//     // })
-
-
-//looping through too many times. need to get it to loop only ONCE; figure out why it's happening 3 times. 
-//lengt of array minus 1 to get index of last card and flip remaining carrds over to start game
-//all other cards except very front cards get cards back. use IF STATEMENT for if not equal to last card, give card class card back; 
-
-
-//array.forEach(function(currentValue, index, arr), thisValue)
-
-//Clicking on stockPile and removing one card at a time from array and pushing it to wastepile
-
-// stock.addEventListener('click', function () {
+function flipLastCard() {
+        arr0[arr0.length -1].node.classList.replace('card-back', 'card-front');           
+    console.log(arr0[arr0.length - 1])
     
-//     console.log('clicked')
-// });
+        arr1[arr1.length -1].node.classList.replace('card-back', 'card-front');           
+    console.log(arr1[arr1.length - 1]
+    )
+        arr2[arr2.length -1].node.classList.replace('card-back', 'card-front');           
+    console.log(arr2[arr2.length - 1])
+    
+        arr3[arr3.length -1].node.classList.replace('card-back', 'card-front');           
+    console.log(arr3[arr3.length - 1])
+    
+        arr4[arr4.length -1].node.classList.replace('card-back', 'card-front');           
+    console.log(arr4[arr4.length - 1])
+    
+        arr5[arr5.length -1].node.classList.replace('card-back', 'card-front');           
+    console.log(arr5[arr5.length - 1])
+    
+    arr6[arr6.length - 1].node.classList.replace('card-back', 'card-front'); 
+    console.log(arr6[arr6.length  -1])
+}
 
-// function flipStockCards() {
-//     stock.
-// }

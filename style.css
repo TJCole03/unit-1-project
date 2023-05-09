@@ -115,19 +115,8 @@ section{
         display:none; 
     }
 
-.card {
-    position: relative;
-    border: 1px solid black;
-    border-radius: .5rem;
-    display: flex; 
-    justify-content: center;
-    align-items: center; 
-    font-size: 4rem;
-    background-color: rgb(151, 151, 183);
-    backface-visibility: hidden;
-    } 
 
-.card-front, .card-back  {
+ /* .card-front, .card-back  {
         position: relative;
         height: 11rem;
         width: 10rem;
@@ -136,7 +125,7 @@ section{
         display: flex; 
         justify-content: center;
         align-items: center; 
-    } 
+    }   */
 
   .card-back {
     height: 11rem; 
@@ -156,11 +145,11 @@ section{
     cursor: pointer;
 }  
 
-.card-front:hover {
+/* .card-front:hover {
     transform: rotateY(180deg);
-}
+} */
 
-.card-front {
+.card-front  {
     position: relative;
     height: 11rem;
     width: 10rem;
@@ -171,7 +160,7 @@ section{
     align-items: center; 
     font-size: 4rem;
     background-color: rgba(15, 89, 209, 0.999);;
-    backface-visibility: hidden;
+    cursor: pointer;
 }
 
 .card.red {
