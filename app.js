@@ -41,13 +41,13 @@ function getColor() {
     return this.suit === "♣️" || this.suit == "♠️" ? 'black' : 'red';
 }
 
-// function getHTML() {
-//     const cardDiv = document.createElement('div')
-//     cardDiv.innerText = this.suit
-//     cardDiv.classList.add("card", this.color)
-//     cardDiv.dataset.value = `${this.value} ${this.suit}`
-//     return cardDiv
-// }
+function getHTML() {
+    const cardDiv = document.createElement('div')
+    cardDiv.innerText = this.suit
+    cardDiv.classList.add("card", this.color)
+    cardDiv.dataset.value = `${this.value} ${this.suit}`
+    return cardDiv
+}
 
 const deck = new Deck()
 deck.shuffle()
@@ -120,7 +120,11 @@ startGame.addEventListener('click', function () {
     console.log('clicked', [stockPile], [arr6], [arr5], [arr4], [arr3], [arr2], [arr1], [arr0]);
 });
 //startGame.removeEventListener('click', dealCards());
-console.log('removed')
+//console.log('removed')
+
+// const el.addEventListener('dragstart', function(event){
+//     console.log(event); 
+// })
 //DEALING CARDS IN APPROPRIATE PLACES
 
 function dealCards() {
@@ -188,4 +192,24 @@ function flipLastCard() {
     arr6[arr6.length - 1].node.classList.replace('card-back', 'card-front'); 
     console.log(arr6[arr6.length  -1])
 }
+//FLIPPING OVER STOCK PILE 
 
+stock.addEventListener('click', function () {
+    flipOverStock();
+     console.log('clicked')
+})
+
+function flipOverStock() {
+    navigator.clipboard
+        .readText(card)
+        .then(
+            (clipText) =>
+            (document.querySelector(".waste").innerText +=
+                clipText)
+        );
+    // for (cards in stockPile) {
+    //     const wastePile = wastePile.add(cardFront)
+    // }
+    
+}
+    

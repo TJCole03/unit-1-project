@@ -127,6 +127,9 @@ section{
         align-items: center; 
     }   */
 
+    .card {
+        display: none;
+    }
   .card-back {
     height: 11rem; 
     width: 10rem; 
