@@ -349,3 +349,86 @@ FLIPPING THE CARDS
   } 
 
   data-value="6 ♥️ 6♥️
+
+  clipboard API
+
+      navigator.clipboard
+        .readText(card)
+        .then(
+            (clipText) =>
+            (document.querySelector(".waste").innerText +=
+                clipText)
+        );
+
+
+: 
+Card {suit: '♠️', value: '5'}
+1
+: 
+Card {suit: '♦️', value: 'Q'}
+2
+: 
+Card {suit: '♦️', value: 'K'}
+3
+: 
+Card {suit: '♦️', value: '5'}
+4
+: 
+Card {suit: '♠️', value: 'J'}
+5
+: 
+Card {suit: '♥️', value: '7'}
+6
+: 
+Card {suit: '♦️', value: 'A'}
+7
+: 
+Card {suit: '♠️', value: '2'}
+8
+: 
+Card {suit: '♠️', value: 'Q'}
+9
+: 
+Card {suit: '♥️', value: '5'}
+10
+: 
+Card {suit: '♠️', value: 'K'}
+11
+: 
+Card {suit: '♣️', value: '8'}
+12
+: 
+Card {suit: '♥️', value: '9'}
+13
+: 
+Card {suit: '♣️', value: '5'}
+14
+: 
+Card {suit: '♦️', value: '2'}
+15
+: 
+Card {suit: '♦️', value: '9'}
+16
+: 
+Card {suit: '♣️', value: 'A'}
+17
+: 
+Card {suit: '♥️', value: '8'}
+18
+: 
+Card {suit: '♦️', value: '8'}
+19
+: 
+Card {suit: '♦️', value: 'J'}
+20
+: 
+Card {suit: '♦️', value: '7'}
+21
+: 
+Card {suit: '♥️', value: 'J'}
+22
+: 
+Card {suit: '♣️', value: '6'}
+23
+: 
+Card {suit: '♠️', value: '7'}

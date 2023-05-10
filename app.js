@@ -153,12 +153,13 @@ function dealCards() {
 
 function renderCards() {
     columns.forEach((column, idx) => {
+
         stock.textContent = stockPile.suit + stockPile.value;
         stock.classList.add('card-back');
 
-        //tableau.forEach(arr => {//});
+
         const arr = tableau[idx]
-        console.log(arr)
+        //console.log(arr)
         arr.forEach((card, i) => {
             const cardDiv = document.createElement('div')
             cardDiv.textContent = card.suit + card.value
@@ -199,17 +200,8 @@ stock.addEventListener('click', function () {
      console.log('clicked')
 })
 
-function flipOverStock() {
-    navigator.clipboard
-        .readText(card)
-        .then(
-            (clipText) =>
-            (document.querySelector(".waste").innerText +=
-                clipText)
-        );
-    // for (cards in stockPile) {
-    //     const wastePile = wastePile.add(cardFront)
-    // }
-    
+function flipOverStock(idx, i) {
+    stockPile[0].shift(stockPile[0][0]);
+    wastePile.push(stockPile[0][0]);
 }
     
