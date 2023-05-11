@@ -103,7 +103,7 @@ const col5 = document.querySelector('#space-5');
 const col6 = document.querySelector('#space-6');
 const col7 = document.querySelector('#space-7');
 const columns = [col1, col2, col3, col4, col5, col6, col7];
-const playingCard = document.getElementById('#card')
+const playingCard = document.getElementsByTagName('ul')
 const cardBack = document.querySelector('.card-back');
 const cardFront = document.querySelector('.card-front');
 const stock = document.querySelector('.stock');
@@ -156,7 +156,7 @@ function renderCards() {
 
         stock.textContent = stockPile.suit + stockPile.value;
         stock.classList.add('card-back');
-
+        
 
         const arr = tableau[idx]
         //console.log(arr)
@@ -203,5 +203,29 @@ stock.addEventListener('click', function () {
 function flipOverStock(idx, i) {
     stockPile[0].shift(stockPile[0][0]);
     wastePile.push(stockPile[0][0]);
+    //displaying card in wastePile
+    wastePile.forEach((card, i) => {
+        waste.textContent = wastePile.suit + wastePile.value;
+        waste.classList.add('card-front'); //returns card as NaN. Ask t.a. why. 
+    });
 }
+
+cardFront.addEventListener('click', dragCards());
+console.log('dragging')
+function dragCards() {
+    const singleCard = document.createElement('div');
+    singleCard.textContent = card.suit + card.value
+    tableau.node = singleCard; 
+    arr1.splice(1, 1); 
+}
+//div.card-front & back are child nodes
+ //looping through tableau to find cards w/ card-front value so I can click on it and drag only
+    //that card and not the entire container holding the rest
+
     
+    //arr1[arr1.length -1]--> location of face up in 2nd column 
+
+// forEach(arr in tableau){
+//     tableau[idx][i].node = cardDiv;
+// }
+// const found = arr1.find(card =>  > 10);
