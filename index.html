@@ -17,21 +17,22 @@
     <container id="table">
         <top id="table-top">
 
-            <section id="foundation">
+            <section id="foundation" ondrop="drop_handler(event)"
+            ondragover="dragover_handler(event)">
                 <div class="spade">spade</div>
                 <div class="diamond">diamond</div>
                 <div class="club">club</div>
                 <div class="heart">heart</div>
             </section>
 
-            <div class="waste" draggable="true">waste</div>
+            <div class="waste" id="waste-card" draggable="true" >waste</div>
 
             <div class="stock" draggable="true">stock</div>
 
         <div class="main-container" draggable="true">
             <div class="card" id="card" draggable="true">
-                <div class="card-front" draggable="true"></div>
-                <div class="card-back" draggable="true"></div>
+                <div class="card-front" draggable="true" toggleAttribute("card-back")></div>
+                <div class="card-back" draggable="true" toggleAttribute("card-front")></div>
             </div>
         </div>
          
@@ -40,13 +41,13 @@
 
         <div class="tableau">
             <ul id="tab" class="tab">
-            <li class="space" id="space-1" draggable="true"> <ul id="playing-card" draggable="true"></ul> </li>
-            <li class="space" id="space-2" draggable="true"> <ul id="playing-card" draggable="true"></ul> </li>
-            <li class="space" id="space-3" draggable="true"> <ul id="playing-card" draggable="true"></ul> </li>
-            <li class="space" id="space-4" draggable="true"> <ul id="playing-card" draggable="true"></ul> </li>
-            <li class="space" id="space-5" draggable="true"> <ul id="playing-card" draggable="true"></ul> </li>
-            <li class="space" id="space-6" draggable="true"> <ul id="playing-card" draggable="true"></ul> </li>
-            <li class="space" id="space-7" draggable="true"> <ul id="playing-card" draggable="true"></ul> </li>
+            <li class="space" id="space-1" > <ul ></ul> </li>
+            <li class="space" id="space-2" >  <ul ></ul> </li>
+            <li class="space" id="space-3" >  <ul ></ul> </li>
+            <li class="space" id="space-4" > <ul ></ul> </li>
+            <li class="space" id="space-5" >  <ul ></ul> </li>
+            <li class="space" id="space-6" > <ul ></ul> </li>
+            <li class="space" id="space-7" > <ul></ul> </li>
             </ul>
         </div>
 

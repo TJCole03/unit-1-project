@@ -432,3 +432,7 @@ Card {suit: '♣️', value: '6'}
 23
 : 
 Card {suit: '♠️', value: '7'}
+
+function drop_handler() {
+    
+}

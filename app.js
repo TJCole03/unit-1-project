@@ -103,12 +103,13 @@ const col5 = document.querySelector('#space-5');
 const col6 = document.querySelector('#space-6');
 const col7 = document.querySelector('#space-7');
 const columns = [col1, col2, col3, col4, col5, col6, col7];
-const playingCard = document.getElementsByTagName('ul')
+const playingCard = document.getElementById('#card');
 const cardBack = document.querySelector('.card-back');
 const cardFront = document.querySelector('.card-front');
 const stock = document.querySelector('.stock');
 const waste = document.querySelector('.waste');
-
+const wasteCard = document.querySelector('#wasteCard')
+const tableauEl = document.querySelector('.tableau');
 // //card back
 
 // const cardBackImgPath = '/timothycole/back_400w.png'
@@ -156,16 +157,17 @@ function renderCards() {
 
         stock.textContent = stockPile.suit + stockPile.value;
         stock.classList.add('card-back');
-        
-
+        stock.setAttribute("node", "card-front")
         const arr = tableau[idx]
         //console.log(arr)
         arr.forEach((card, i) => {
             const cardDiv = document.createElement('div')
             cardDiv.textContent = card.suit + card.value
             cardDiv.classList.add('card-back'); 
-            tableau[idx][i].node = cardDiv; 
+            tableau[idx][i].node = cardDiv;
+            cardDiv.setAttribute('draggable', "true")
             column.append(cardDiv)
+            
         })   
         
     })
@@ -200,32 +202,105 @@ stock.addEventListener('click', function () {
      console.log('clicked')
 })
 
-function flipOverStock(idx, i) {
+function flipOverStock() {
     stockPile[0].shift(stockPile[0][0]);
-    wastePile.push(stockPile[0][0]);
+    let wasteCard = document.createElement('div')
+    wasteCard = wastePile.push(stockPile[0][0]);
+    wastePile.node = wasteCard
     //displaying card in wastePile
-    wastePile.forEach((card, i) => {
-        waste.textContent = wastePile.suit + wastePile.value;
-        waste.classList.add('card-front'); //returns card as NaN. Ask t.a. why. 
+    wastePile.forEach((card) => {
+        //wastePile.node = wasteCard
+        waste.textContent = card.suit + card.value;
+        waste.appendChild(wasteCard, getHTML()); //returns card as NaN. Ask t.a. why. 
     });
 }
 
-cardFront.addEventListener('click', dragCards());
-console.log('dragging')
-function dragCards() {
-    const singleCard = document.createElement('div');
-    singleCard.textContent = card.suit + card.value
-    tableau.node = singleCard; 
-    arr1.splice(1, 1); 
+tableauEl.addEventListener('click', flipCards); {
+ 
 }
+
+function flipCards() {
+    const cardDiv = tableauEl.node
+    for (cardDiv in tableau) {
+        //tableauEl.node = cardDiv
+        cardDiv.toggleAttribute('card-front')
+    }
+    console.log('clicked')
+}
+
+
+
+
+
+// cardDiv.textContent = card.suit + card.value
+//             cardDiv.classList.add('card-back'); 
+//             tableau[idx][i].node = cardDiv;
+//             cardDiv.setAttribute('draggable', "true")
+//             column.append(cardDiv)
+
+
+tableauEl.addEventListener('dragstart', dragstart_handler); 
+//tableau.addEventListener('dragend', dragend_handler)
+tableauEl.addEventListener('drop', drop_handler); 
+
+
+
+    
+
+    function dragstart_handler(ev) {
+        ev.dataTransfer.setData("text/plain", ev.target.textContent)
+
+        console.log(ev.target)
+    }
+
+    function dragover_handler(ev) {
+        ev.preventDefault();
+        ev.dataTransfer.dropEffect = 'move'
+    }
+
+    function drop_handler(ev) {
+        ev.preventDefault();
+        const data = ev.dataTransfer.getData('text/plain');
+        console.log(data)
+        ev.target.appendChild(document.getElementsByClassName('space'))
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function dragCards() {
+//     const singleCard = document.createElement('div');
+//     singleCard.textContent = card.suit + card.value
+//     tableau.node = singleCard;
+
+//     arr0.splice(0, 1); //gets face up card in array. 
+//     arr1.splice(1, 1); //gets face up card in array. 
+//     arr2.splice(2, 1); //gets face up card in array. 
+//     arr3.splice(3, 1); //gets face up card in array. 
+//     arr4.splice(4, 1); //gets face up card in array. 
+//     arr5.splice(5, 1); //gets face up card in array. //make instance of card class??
+//     arr6.splice(6, 1); //gets face up card in array. 
+// }
+
+
 //div.card-front & back are child nodes
  //looping through tableau to find cards w/ card-front value so I can click on it and drag only
     //that card and not the entire container holding the rest
 
     
-    //arr1[arr1.length -1]--> location of face up in 2nd column 
+    //arr1[arr1.length -1]--> location of face up in 2nd column (i think)
 
-// forEach(arr in tableau){
-//     tableau[idx][i].node = cardDiv;
-// }
-// const found = arr1.find(card =>  > 10);
+
+//const found = arr1.find(card =>  > 10)(
