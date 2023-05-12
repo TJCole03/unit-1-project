@@ -110,6 +110,7 @@ const stock = document.querySelector('.stock');
 const waste = document.querySelector('.waste');
 const wasteCard = document.querySelector('#wasteCard')
 const tableauEl = document.querySelector('.tableau');
+const tableauEls = document.querySelector('.tab');
 // //card back
 
 // const cardBackImgPath = '/timothycole/back_400w.png'
@@ -211,20 +212,23 @@ function flipOverStock() {
     wastePile.forEach((card) => {
         //wastePile.node = wasteCard
         waste.textContent = card.suit + card.value;
-        waste.appendChild(wasteCard, getHTML()); //returns card as NaN. Ask t.a. why. 
+        waste.append(cardFront); //returns card as NaN. Ask t.a. why. 
     });
 }
 
-tableauEl.addEventListener('click', flipCards); {
+tableauEls.addEventListener('click', flipCards); {
  
 }
 
 function flipCards() {
-    const cardDiv = tableauEl.node
-    for (cardDiv in tableau) {
-        //tableauEl.node = cardDiv
-        cardDiv.toggleAttribute('card-front')
+    const cardDiv = document.createElement('div')
+    cardDiv.textContent = card.suit + card.value;
+    for (const cardDiv in tableauEls) {
+        if (cardDiv === 'card-back') {
+            cardDiv.classList.replace('card-back', 'card-front')
+        }
     }
+    
     console.log('clicked')
 }
 
@@ -242,10 +246,6 @@ function flipCards() {
 tableauEl.addEventListener('dragstart', dragstart_handler); 
 //tableau.addEventListener('dragend', dragend_handler)
 tableauEl.addEventListener('drop', drop_handler); 
-
-
-
-    
 
     function dragstart_handler(ev) {
         ev.dataTransfer.setData("text/plain", ev.target.textContent)
