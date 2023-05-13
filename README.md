@@ -503,3 +503,32 @@ function drop_handler() {
 //     cardDiv.setAttribute('draggable', "true")
 //     // cardDiv.getAttribute("class", "card-front")
 //     column.append(cardDiv)
+
+// function dragCards() {
+//     const singleCard = document.createElement('div');
+//     singleCard.textContent = card.suit + card.value
+//     tableau.node = singleCard;
+
+//     arr0.splice(0, 1); //gets face up card in array. 
+//     arr1.splice(1, 1); //gets face up card in array. 
+//     arr2.splice(2, 1); //gets face up card in array. 
+//     arr3.splice(3, 1); //gets face up card in array. 
+//     arr4.splice(4, 1); //gets face up card in array. 
+//     arr5.splice(5, 1); //gets face up card in array. //make instance of card class??
+//     arr6.splice(6, 1); //gets face up card in array. 
+// }
+
+
+//div.card-front & back are child nodes
+ //looping through tableau to find cards w/ card-front value so I can click on it and drag only
+    //that card and not the entire container holding the rest
+
+    
+    //arr1[arr1.length -1]--> location of face up in 2nd column (i think)
+
+
+
+        // const found = arr1.find((arr1) => {
+        //     return arr1.value 
+        // })
+        // console.log(found)

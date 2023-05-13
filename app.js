@@ -2,6 +2,8 @@
 const SUITS = ["♠️", "♣️", "♥️", "♦️"]
 const VALUES = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
 
+//https://www.youtube.com/watch?v=NxRwIZWjLtE&t=1900s
+
 
 class Deck {
     constructor(cards = newDeck()) {
@@ -260,7 +262,7 @@ diamond.addEventListener('drop', drop_handler);
 function dragend_handler(ev) {
     ev.preventDefault();
     
-    function checkText() {
+    function checkText(text) {
         const arr = [arr0, arr1, arr2, arr3, arr4, arr5, arr6];
         if (arr[0] <= 10) {
             ev.target.append(document.getElementById('#foundation'))
@@ -279,10 +281,6 @@ function dragend_handler(ev) {
         
 
 
-        // const found = arr1.find((arr1) => {
-        //     return arr1.value 
-        // })
-        // console.log(found)
 
 
 
@@ -292,26 +290,5 @@ function dragend_handler(ev) {
 
 
 
-// function dragCards() {
-//     const singleCard = document.createElement('div');
-//     singleCard.textContent = card.suit + card.value
-//     tableau.node = singleCard;
-
-//     arr0.splice(0, 1); //gets face up card in array. 
-//     arr1.splice(1, 1); //gets face up card in array. 
-//     arr2.splice(2, 1); //gets face up card in array. 
-//     arr3.splice(3, 1); //gets face up card in array. 
-//     arr4.splice(4, 1); //gets face up card in array. 
-//     arr5.splice(5, 1); //gets face up card in array. //make instance of card class??
-//     arr6.splice(6, 1); //gets face up card in array. 
-// }
-
-
-//div.card-front & back are child nodes
- //looping through tableau to find cards w/ card-front value so I can click on it and drag only
-    //that card and not the entire container holding the rest
-
-    
-    //arr1[arr1.length -1]--> location of face up in 2nd column (i think)
 
 
