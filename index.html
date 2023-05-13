@@ -4,35 +4,46 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Calistoga&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mogra&display=swap" rel="stylesheet">
     <title>Document</title>
     <!-- <script src="deck.js" defer ></script> -->
     <script defer src="app.js" ></script>
     <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<header>Solitare</header>
+<header> "Solitare" </header>
 
-<button class="start-button">Start Game</button>
+<button class="start-button">Start "Game"</button>
 
     <container id="table">
         <top id="table-top">
 
-            <section id="foundation" ondrop="drop_handler(event)"
-            ondragover="dragover_handler(event)">
-                <div class="spade">spade</div>
-                <div class="diamond">diamond</div>
-                <div class="club">club</div>
-                <div class="heart">heart</div>
-            </section>
+    <section id="foundation" > 
 
-            <div class="waste" id="waste-card" draggable="true" >waste</div>
+            <div class="spade" ondrop="drop_handler(ev)"
+        ondragover="dragover_handler(ev)" ondragend="dragend_handler(ev)">♠️</div>
+            <div class="heart" ondrop="drop_handler(ev)"
+        ondragover="dragover_handler(ev)" ondragend="dragend_handler(ev)">♥️</div>
+            <div class="club" ondrop="drop_handler(ev)"
+        ondragover="dragover_handler(ev)" ondragend="dragend_handler(ev)">♣️</div>
+            <div class="diamond" ondrop="drop_handler(ev)"
+        ondragover="dragover_handler(ev)" ondragend="dragend_handler(ev)">♦️</div>
+         
+    </section>
 
-            <div class="stock" draggable="true">stock</div>
+        <div class="waste" id="waste-card" draggable="true" >Waste</div>
+
+        <div class="stock" draggable="true">Stock</div>
 
         <div class="main-container" draggable="true">
             <div class="card" id="card" draggable="true">
-                <div class="card-front" draggable="true" toggleAttribute("card-back")></div>
-                <div class="card-back" draggable="true" toggleAttribute("card-front")></div>
+                <div class="card-front" draggable="true" toggleAttribute(".card-back")></div>
+                <div class="card-back" draggable="true" toggleAttribute(".card-front")></div>
             </div>
         </div>
          
@@ -51,7 +62,9 @@
             </ul>
         </div>
 
-      
+     
+
+
     </container> 
 
 

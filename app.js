@@ -62,12 +62,12 @@ const startPile = [];
 const stockPile =  [];
 const wastePile = [];
 
-const spade = [];
-const heart = [];
-const club = [];
-const diamond = [];
+const spadeFound = [];
+const heartFound = [];
+const clubFound = [];
+const diamondFound = [];
 
-const foundations = [spade, heart, club, diamond]
+const foundations = [spadeFound, heartFound, clubFound, diamondFound]
 
 const arr0 = [];
 const arr1 = [];
@@ -86,11 +86,11 @@ const playedCards =
 
 //const strtPile = document.getElementById('#start-pile');
 const playDeck = document.getElementsByClassName('.deck')
-const foundationTable = document.getElementById('#foundations');
-const foundSpade = document.getElementsByClassName('.spade');
-const foundDiamond = document.getElementsByClassName('.diamond');
-const foundClub = document.getElementsByClassName('.club');
-const foundHeart = document.getElementsByClassName('.heart');
+const foundation = document.getElementById('#foundations');
+const spade = document.querySelector('.spade');
+const diamond = document.querySelector('.diamond');
+const club = document.querySelector('.club');
+const heart = document.querySelector('.heart');
 
 //what i've used so far 
 const startGame = document.querySelector('.start-button');
@@ -104,13 +104,14 @@ const col6 = document.querySelector('#space-6');
 const col7 = document.querySelector('#space-7');
 const columns = [col1, col2, col3, col4, col5, col6, col7];
 const playingCard = document.getElementById('#card');
-const cardBack = document.querySelector('.card-back');
+// const cardBack = document.querySelector('.card-back');
 const cardFront = document.querySelector('.card-front');
 const stock = document.querySelector('.stock');
 const waste = document.querySelector('.waste');
 const wasteCard = document.querySelector('#wasteCard')
 const tableauEl = document.querySelector('.tableau');
 const tableauEls = document.querySelector('.tab');
+
 // //card back
 
 // const cardBackImgPath = '/timothycole/back_400w.png'
@@ -167,6 +168,7 @@ function renderCards() {
             cardDiv.classList.add('card-back'); 
             tableau[idx][i].node = cardDiv;
             cardDiv.setAttribute('draggable', "true")
+            // cardDiv.getAttribute("class", "card-front")
             column.append(cardDiv)
             
         })   
@@ -216,40 +218,50 @@ function flipOverStock() {
     });
 }
 
-tableauEls.addEventListener('click', flipCards); {
+// tableauEls.addEventListener('click', flipCards); {
  
-}
+// }
 
-function flipCards() {
-    const cardDiv = document.createElement('div')
-    cardDiv.textContent = card.suit + card.value;
-    for (const cardDiv in tableauEls) {
-        if (cardDiv === 'card-back') {
-            cardDiv.classList.replace('card-back', 'card-front')
-        }
-    }
+// function flipCards() {
+//     arr1[0].node.classList.replace('card-back', 'card-front');
+
+//     arr2[0].node.classList.replace('card-back', 'card-front');
+//     arr2[1].node.classList.replace('card-back', 'card-front');
+
+//     arr3[0].node.classList.replace('card-back', 'card-front');
+//     arr3[1].node.classList.replace('card-back', 'card-front');
+//     arr3[2].node.classList.replace('card-back', 'card-front');
+
+//     arr4[0].node.classList.replace('card-back', 'card-front');
+//     arr4[1].node.classList.replace('card-back', 'card-front');
+//     arr4[2].node.classList.replace('card-back', 'card-front');
+//     arr4[3].node.classList.replace('card-back', 'card-front');
+
+//     arr5[0].node.classList.replace('card-back', 'card-front');
+//     arr5[1].node.classList.replace('card-back', 'card-front');
+//     arr5[2].node.classList.replace('card-back', 'card-front');
+//     arr5[3].node.classList.replace('card-back', 'card-front');
+//     arr5[4].node.classList.replace('card-back', 'card-front');
     
-    console.log('clicked')
-}
+//     arr6[0].node.classList.replace('card-back', 'card-front');
+//     arr6[1].node.classList.replace('card-back', 'card-front');
+//     arr6[2].node.classList.replace('card-back', 'card-front');
+//     arr6[3].node.classList.replace('card-back', 'card-front');
+//     arr6[4].node.classList.replace('card-back', 'card-front');
+//     arr6[5].node.classList.replace('card-back', 'card-front');
 
-
-
-
-
-// cardDiv.textContent = card.suit + card.value
-//             cardDiv.classList.add('card-back'); 
-//             tableau[idx][i].node = cardDiv;
-//             cardDiv.setAttribute('draggable', "true")
-//             column.append(cardDiv)
+// }
 
 
 tableauEl.addEventListener('dragstart', dragstart_handler); 
-//tableau.addEventListener('dragend', dragend_handler)
-tableauEl.addEventListener('drop', drop_handler); 
+tableauEl.addEventListener('dragend', dragend_handler);
+spade.addEventListener('drop', drop_handler); 
+heart.addEventListener('drop', drop_handler); 
+club.addEventListener('drop', drop_handler); 
+diamond.addEventListener('drop', drop_handler); 
 
     function dragstart_handler(ev) {
         ev.dataTransfer.setData("text/plain", ev.target.textContent)
-
         console.log(ev.target)
     }
 
@@ -258,19 +270,32 @@ tableauEl.addEventListener('drop', drop_handler);
         ev.dataTransfer.dropEffect = 'move'
     }
 
+function dragend_handler(ev) {
+    ev.preventDefault();
+    
+    function checkText() {
+        const arr = [arr0, arr1, arr2, arr3, arr4, arr5, arr6];
+        if (arr[0] <= 10) {
+            ev.target.append(document.getElementById('#foundation'))
+            }
+     
+    }
+    checkText();
+}
+
     function drop_handler(ev) {
         ev.preventDefault();
         const data = ev.dataTransfer.getData('text/plain');
         console.log(data)
-        ev.target.appendChild(document.getElementsByClassName('space'))
-
-    }
-
-
+        //ev.target.append(document.getElementById('#black-hole'))
+        }
+        
 
 
-
-
+        // const found = arr1.find((arr1) => {
+        //     return arr1.value 
+        // })
+        // console.log(found)
 
 
 
@@ -303,4 +328,3 @@ tableauEl.addEventListener('drop', drop_handler);
     //arr1[arr1.length -1]--> location of face up in 2nd column (i think)
 
 
-//const found = arr1.find(card =>  > 10)(

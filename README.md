@@ -435,4 +435,71 @@ Card {suit: '♠️', value: '7'}
 
 function drop_handler() {
     
-}
+}// arr2[0].node.classList.replace('card-back', 'card-front');
+    // arr2[1].node.classList.replace('card-back', 'card-front');
+
+    // arr3[0].node.classList.replace('card-back', 'card-front');
+    // arr3[1].node.classList.replace('card-back', 'card-front');
+    // arr3[2].node.classList.replace('card-back', 'card-front');
+
+    // arr4[0].node.classList.replace('card-back', 'card-front');
+    // arr4[1].node.classList.replace('card-back', 'card-front');
+    // arr4[2].node.classList.replace('card-back', 'card-front');
+    // arr4[3].node.classList.replace('card-back', 'card-front');
+
+    // arr5[0].node.classList.replace('card-back', 'card-front');
+    // arr5[1].node.classList.replace('card-back', 'card-front');
+    // arr5[2].node.classList.replace('card-back', 'card-front');
+    // arr5[3].node.classList.replace('card-back', 'card-front');
+    // arr5[4].node.classList.replace('card-back', 'card-front');
+    
+    // arr6[0].node.classList.replace('card-back', 'card-front');
+    // arr6[1].node.classList.replace('card-back', 'card-front');
+    // arr6[2].node.classList.replace('card-back', 'card-front');
+    // arr6[3].node.classList.replace('card-back', 'card-front');
+    // arr6[4].node.classList.replace('card-back', 'card-front');
+    // arr6[5].node.classList.replace('card-back', 'card-front');
+
+    let arr = [[arr0, arr1, arr2, arr3, arr4, arr5, arr6]];
+// function flipCards(i) {
+//     for (let i = 0; i > tableauEls.length; i++) {
+//         //const cardBack = document.querySelector('.card-back');
+//         if (card !== 'card-front') {
+//             card.classList.replace('card-back', 'card-front')
+//         }
+//     }
+    
+//     console.log('clicked')
+// }
+
+// let arr = [[arr0, arr1, arr2, arr3, arr4, arr5, arr6]];
+// function flipCards(i) {
+//     for (let i = 0; i > tableauEls.length; i++) {
+//         //const cardBack = document.querySelector('.card-back');
+//         if (card !== 'card-front') {
+//             card.classList.replace('card-back', 'card-front')
+//         }
+//     }
+    
+//     console.log('clicked')
+// }
+
+
+//const tableauElsDiv = document.createElement('div')
+   // arr.node.textContent.add('card-front');
+// tableauEls[i].node = cardDiv;
+// cardDiv.textContent = card.suit + card.value
+// if(tableauels.textContent)
+//         //cardDiv.classList.add('card-back'); 
+//         cardDiv.setAttribute('draggable', "true")
+//         column.append(cardDiv)
+//         tableauEls.arr.node.classList.replace('card-back', 'card-front');
+
+// arr.forEach((card, i) => {
+//     const cardDiv = document.createElement('div')
+//     cardDiv.textContent = card.suit + card.value
+//     cardDiv.classList.add('card-back'); 
+//     tableau[idx][i].node = cardDiv;
+//     cardDiv.setAttribute('draggable', "true")
+//     // cardDiv.getAttribute("class", "card-front")
+//     column.append(cardDiv)

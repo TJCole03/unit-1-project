@@ -1,11 +1,25 @@
 * {
     box-sizing: border-box;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+}
+
+header {
+    font-size: 45px;
+    font-family: 'Calistoga', cursive;
+    justify-content: center;
+    justify-self: center;
 }
 button {
     display: flex; 
     width: 7.5%; 
     justify-content: center;
     align-content: center;
+    justify-self: center;
+    font-family: 'Mogra', cursive;
+
 }
 body {
     margin: 0;
@@ -36,18 +50,39 @@ section{
     padding: 1px;
 }
 
-#foundations > section {
-    display: grid; 
-    grid-template-columns: 1fr, 1fr, 1fr, 1fr; 
-    grid-template-rows: 1fr; 
+#foundation {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 50rem;
+    height: 13rem;
+    background-color: rgba(74, 87, 108, 0.631);
+    margin: 5px;
+    font-family: 'Mogra', cursive;
+    color:rgba(243, 246, 227, 0.999);
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+    border: 1px solid black;
+} 
+
+.spade, .heart, .club, .diamond {
+    border: 1px solid black;
+    border-radius: .5rem;
+    height: 11rem;
+    width: 8rem;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
 
 }
 
 
 .stock {
+    font-family: 'Calistoga', cursive;
     display: flex;
-    height: 15rem; 
-    width: 12rem; 
+    height: 11rem; 
+    width: 10rem; 
     border: 1px solid black; 
     display: flex; 
     justify-content: center;
@@ -58,10 +93,15 @@ section{
 }
 
 .waste {
+    font-family: 'Calistoga', cursive;
     display: flex; 
-    height: 15rem; 
-    width: 12rem; 
-    border: 1px solid red; 
+    height: 11rem; 
+    width: 10rem; 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black; 
+    border-radius: .5rem;
     right: 200px;
     padding: 1px;
     cursor: pointer;
@@ -88,9 +128,8 @@ section{
 }  */
 
 .space {
-    height: 12.5rem; 
-    width: 12rem; 
-    border: 1px solid black; 
+    height: 9rem; 
+    width: 9rem; 
     color: black;
     background-repeat: no-repeat;
     background-position: center;
@@ -131,8 +170,8 @@ section{
         display: none;
     }
   .card-back {
-    height: 11rem; 
-    width: 10rem; 
+    height: 8rem; 
+    width: 7rem; 
     border: 1px solid black; 
     display: flex; 
     justify-content: center;
@@ -154,8 +193,8 @@ section{
 
 .card-front  {
     position: relative;
-    height: 11rem;
-    width: 10rem;
+    height: 8rem;
+    width: 7rem;
     border: 1px solid black;
     border-radius: .5rem;
     display: flex; 
@@ -192,7 +231,4 @@ section{
     transform: rotate(180deg);
 }
 
-.flipCard {
-    transform: rotateY(180deg);
-}
 
