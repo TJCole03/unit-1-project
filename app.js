@@ -79,19 +79,6 @@ const arr6 = [];
 
 const tableau = [arr0, arr1, arr2, arr3, arr4, arr5, arr6];
 
-const playedCards =
-    'tab .card:last-child';
-
-//what I haven't used 
-
-//const strtPile = document.getElementById('#start-pile');
-const playDeck = document.getElementsByClassName('.deck')
-const foundation = document.getElementById('#foundations');
-const spade = document.querySelector('.spade');
-const diamond = document.querySelector('.diamond');
-const club = document.querySelector('.club');
-const heart = document.querySelector('.heart');
-
 //what i've used so far 
 const startGame = document.querySelector('.start-button');
 const spaces = document.querySelectorAll('.space')
@@ -111,23 +98,18 @@ const waste = document.querySelector('.waste');
 const wasteCard = document.querySelector('#wasteCard')
 const tableauEl = document.querySelector('.tableau');
 const tableauEls = document.querySelector('.tab');
+const spade = document.querySelector('.spade');
+const diamond = document.querySelector('.diamond');
+const club = document.querySelector('.club');
+const heart = document.querySelector('.heart');
 
-// //card back
-
-// const cardBackImgPath = '/timothycole/back_400w.png'
-//EVENT LISTENERS 
 
 startGame.addEventListener('click', function () {
     
     dealCards();
     console.log('clicked', [stockPile], [arr6], [arr5], [arr4], [arr3], [arr2], [arr1], [arr0]);
 });
-//startGame.removeEventListener('click', dealCards());
-//console.log('removed')
 
-// const el.addEventListener('dragstart', function(event){
-//     console.log(event); 
-// })
 //DEALING CARDS IN APPROPRIATE PLACES
 
 function dealCards() {
@@ -145,9 +127,7 @@ function dealCards() {
         const deal6 = arr2.push(...deck.cards.splice(0,3)); //3
         const deal7 = arr1.push(...deck.cards.splice(0,2)); //2
         const deal8 = arr0.push(...deck.cards.splice(0,1)); //1
-        //return deal, deal2, deal3, deal4, deal5, deal6, deal7, deal8;
-        
-        //gives me 28 cards in stock pile (need 24) but have proper number of cards in tableau. 
+    
         
     } 
     renderCards();
@@ -206,16 +186,23 @@ stock.addEventListener('click', function () {
 })
 
 function flipOverStock() {
-    stockPile[0].shift(stockPile[0][0]);
-    let wasteCard = document.createElement('div')
-    wasteCard = wastePile.push(stockPile[0][0]);
-    wastePile.node = wasteCard
-    //displaying card in wastePile
-    wastePile.forEach((card) => {
+    if (stockPile[0].length > 0) {
+        stockPile[0].shift(stockPile[0][0]);
+        let wasteCard = document.createElement('div')
+        wasteCard = wastePile.push(stockPile[0][0]);
         //wastePile.node = wasteCard
-        waste.textContent = card.suit + card.value;
-        waste.append(cardFront); //returns card as NaN. Ask t.a. why. 
-    });
+        //displaying card in wastePile
+        wastePile.forEach((card) => {
+            //wastePile.node = wasteCard
+            waste.textContent = card.suit + card.value;
+            waste.append('.card-front');
+        });
+    } else {
+        if (stockPile[0].length === 0) {
+            //wastePile.replace(cardFront, )
+            stockPile[0].push(wastePile['every'])
+        }
+    }
 }
 
 // tableauEls.addEventListener('click', flipCards); {
