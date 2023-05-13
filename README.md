@@ -16,13 +16,16 @@ https://excalidraw.com/
 
 excalidraw.png 
 
-Solitaire_start.png
+Game Start 
+![Solitaire_start](https://github.com/TJCole03/unit-1-project/assets/125562166/107d4e96-caa4-4244-82aa-b122905390bb)
+Cards Out Top of Screen 
+![Solitaire_cards_out](https://github.com/TJCole03/unit-1-project/assets/125562166/075e6d7e-889d-4dee-937f-6fdd1efcfc4a)
 
-Solitaire_cards_out.png
+Cards Out Bottom of Screen
+![Cards_out_bottom](https://github.com/TJCole03/unit-1-project/assets/125562166/01c2bf9a-7c31-46f8-8edc-be07d5655a76)
 
-Cards_out_bottom.png
-
-Solitaire_Stock.png
+Stock Deck Clicked
+![Solitaire_stock](https://github.com/TJCole03/unit-1-project/assets/125562166/ebc73b61-5550-4abe-be16-95b949c3d82d)
 
 https://tjcole03.github.io/unit-1-project/
 
