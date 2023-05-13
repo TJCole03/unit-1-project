@@ -1,167 +1,194 @@
-// class Cards {
-//     constructor(for(let i = 1; i < 13; i++), color) {
-//     this.color = color
+Solitaire
 
-//     }
-// }
+Basic Solitaire/Klondike card game.
 
-// class Spade extends Cards {
-//     constructor(..args) {
-//         this.color = black; 
-//     }
-// }
+HTML/CSS/JS. 
 
-// class Club extends Cards {
-//     constructor(..args) {
-//         this.color = black; 
-//     }
-// }
-// class Heart extends Cards {
-//     constructor(..args) {
-//         this.color = red; 
-//     }
-// }
-// class Diamond extends Cards {
-//     constructor(..args) {
-//         this.color = red; 
-//     }
-// }
+Flip over and move around cards to create runs of successive numbers, alternating colors of suits. 
 
-//making the cards https://www.youtube.com/watch?v=LxXWTXOny3A, https://www.thatsoftwaredude.com/content/6196/coding-a-card-deck-in-javascript
+Get ace card in foundation, then build up foundation piles based on deck. 
 
-// const suits = ['Hr','Cb','Dr','Sb']; //r = red, b = black
-// const rank = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
-// //let deck = [];
+Game is won by overturning all cards and moving them to the foundation. 
 
-// function getDeck() {
-//     let deck = new Array();
-//     for (let i = 0; i < suits.length; i++) {
-//         for (let x = 0; x < rank.length; x++) {
-//             //console.log(rank[rankCounter] + suits[suitCounter]);
-//             let card = { Rank: rank[x], Suit: suits[i] };
-//             deck.push(card);
-//         }
-//     }
-//     return deck;
-// }
+Wireframe: 
+
+https://excalidraw.com/ 
+
+excalidraw.png 
+
+Solitaire_start.png
+
+Solitaire_cards_out.png
+
+Cards_out_bottom.png
+
+Solitaire_Stock.png
+
+https://tjcole03.github.io/unit-1-project/
+
+https://replit.com/@TJCole/Solitaire-Pseudocode#index.html 
+
+For the future: 
+1. Improve deck of cards for easier accessibility 
+2. Implement drag and drop logic with color/suit sensing conditionals 
+3. Create stacking effect in tableau
+4. Fenagle my CSS to get values and suits in corners of cards
+5. Add win/lose logic by using conditionals 
 
 
-// function shuffle(deck) {
 
-//     //for 1000 turns
-//     //switch values of two random cards
-//     for (let i = 0; i < 1000; i++){
-//         let spot1 = Math.floor((Math.random() * deck.length));
-//         let spot2 = Math.floor((Math.random() * deck.length));
-//         let tmp = deck[spot1]
 
-//         deck[spot1] = deck[spot2];
-//         deck[spot2] = tmp;
-//     }
-// }
 
-// function renderDeck(deck) {
-//     document.getElementById("deck").innerHTML = "";
 
-//     for (let i = 0; i < deck.length; i++) {
-//         let card = document.createElement("div");
-//         let value = document.createElement("div");
-//         let suit = document.createElement("div");
-//         card.className = "card";
-//         value.className = "value";
-//         suit.className = "suit " + deck[i].Suit;
 
-//         value.innerHTML = deck[i].Value;
-//         card.appendChild(value);
-//         card.appendChild(suit);
 
-//         document.getElementById("deck").appendChild(card);
-//     }
-// }
 
-function shuffle() {
 
-        //for 1000 turns
-        //switch values of two random cards
-        for (let i = 0; i < 1000; i++){
-            let spot1 = Math.floor((Math.random() * deck.length));
-            let spot2 = Math.floor((Math.random() * deck.length));
-            let tmp = deck[spot1]
-    
-            deck[spot1] = deck[spot2];
-            deck[spot2] = tmp;
-        }
-    shuffle(deck);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Calistoga&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mogra&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <!-- <script src="deck.js" defer ></script> -->
+    <script defer src="app.js" ></script>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<header> "Solitare" </header>
+
+<button class="start-button">Start "Game"</button>
+
+    <container id="table">
+        <top id="table-top">
+
+    <section id="foundation" > 
+
+            <div class="spade" ondrop="drop_handler(ev)"
+        ondragover="dragover_handler(ev)" ondragend="dragend_handler(ev)">♠️</div>
+            <div class="heart" ondrop="drop_handler(ev)"
+        ondragover="dragover_handler(ev)" ondragend="dragend_handler(ev)">♥️</div>
+            <div class="club" ondrop="drop_handler(ev)"
+        ondragover="dragover_handler(ev)" ondragend="dragend_handler(ev)">♣️</div>
+            <div class="diamond" ondrop="drop_handler(ev)"
+        ondragover="dragover_handler(ev)" ondragend="dragend_handler(ev)">♦️</div>
+         
+    </section>
+
+        <div class="waste" id="waste-card" draggable="true" >Waste</div>
+
+        <div class="stock" draggable="true">Stock</div>
+
+        <div class="main-container" draggable="true">
+            <div class="card" id="card" draggable="true">
+                <div class="card-front" draggable="true" toggleAttribute(".card-back")></div>
+                <div class="card-back" draggable="true" toggleAttribute(".card-front")></div>
+            </div>
+        </div>
+         
+        
+        </top>
+
+        <div class="tableau">
+            <ul id="tab" class="tab">
+            <li class="space" id="space-1" > <ul ></ul> </li>
+            <li class="space" id="space-2" >  <ul ></ul> </li>
+            <li class="space" id="space-3" >  <ul ></ul> </li>
+            <li class="space" id="space-4" > <ul ></ul> </li>
+            <li class="space" id="space-5" >  <ul ></ul> </li>
+            <li class="space" id="space-6" > <ul ></ul> </li>
+            <li class="space" id="space-7" > <ul></ul> </li>
+            </ul>
+        </div>
+
+     
+
+
+    </container> 
+
+
+</body>
+</html>
+
+header {
+    font-size: 45px;
+    font-family: 'Calistoga', cursive;
+    justify-content: center;
+    justify-self: center;
 }
-    
-console.log(deck)
-console.log(shuffle(deck))
+button {
+    display: flex; 
+    width: 7.5%; 
+    justify-content: center;
+    align-content: center;
+    justify-self: center;
+    font-family: 'Mogra', cursive;
 
-<div class="deck">
-    <h1>A Deck of Cards</h1>
-
-    <a href="javascript:void(0)" class="btn" onclick="renderDeck()">Start Game</a>
-    <div id="deck"></div>
-</div>
-
-.deck .card {
-    border: solid 1px #aaa; 
-    border-radius: 9px;
-    width: 95px; 
-    height: 150px; 
-    float: left; 
-    background-color: white;
-    padding: 3px, 3px, 3px, 3px;
-    margin: 5px; 
 }
-
-.card2 {
-    width: 50px; 
-    padding: 10px; 
-    border: solid 1px #808080; 
-    background-color: white;
-    display: inline-block;
-    border-radius: 10px;
-    font-size: 22px;
-    text-align: center;
-    margin: 3px;
-    border: solid 3px;
+body {
+    margin: 0;
+    display: grid; 
 }
+/* sections */
 
-.card .value {
-    font-size: 15pt;
-    font-family: sans-serif;
-}
-
-.card .suit {
-    background-image: url('https://www.thatsoftwaredude.com/images/post/0f631eeb-6c4a-4bfd-9f86-e0a08ae8584b.png');
-    height: 100px; 
-    width: 90px; 
-}
-
-.card .diamonds {
-    background-position-y: 100px;
-}
-
-.card .hearts {
-    background-position-x: 90px;
-}
-
-.card .clubs {
-    background-position-x: 90px;
-    background-position-y: 100px;
-}
-
-table {
-    height: 100rem; 
-    width: 150rem; 
+#table {
+    height: 75rem; 
+    width: 100rem; 
     border: 1px solid black; 
     background-color: rgb(50, 150, 50);
-    position: realtive;
-    display: flex;
+    
 }
 
-#foundation{
+#table-top {
+    display: flex; 
+    flex-direction: row;
+}
+
+section{
     display: flex;
     flex-direction: flex-start;
     border: 1px solid black; 
@@ -171,157 +198,128 @@ table {
     padding: 1px;
 }
 
-#waste {
-    display: flex;
-    height: 15rem; 
-    width: 12rem; 
-    border: 1px solid red; 
-    position: absolute;
-    right: 200px;
-    padding: 1px;
-}
-
-#stock {
-    display: flex;
-    height: 15rem; 
-    width: 12rem; 
-    border: 1px solid black; 
-    margin-left: auto; 
-    padding: 1px;
-    
-}
-
-
-#tableau > div {
-    height: 15rem; 
-    width: 10rem; 
+#foundation {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 50rem;
+    height: 13rem;
+    background-color: rgba(74, 87, 108, 0.631);
+    margin: 5px;
+    font-family: 'Mogra', cursive;
+    color:rgba(243, 246, 227, 0.999);
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
     border: 1px solid black;
-    display: inline-block;
-    margin-top: 18rem;
-    margin-right: 400px;
-    margin-left: -350px;
-}
+} 
 
-#foundation{
-    display: flex;
-    flex-direction: flex-start;
-    border: 1px solid black; 
-    background-color: rgb(41, 123, 41);
-    height: 15rem; 
-    width: 40rem;
-    padding: 1px;
-}
-
-#waste {
-    display: flex;
-    height: 15rem; 
-    width: 12rem; 
-    border: 1px solid red; 
-    position: absolute;
-    right: 200px;
-    padding: 1px;
-}
-
-#stock {
-    display: flex;
-    height: 15rem; 
-    width: 12rem; 
-    border: 1px solid black; 
-    margin-left: auto; 
-    padding: 1px;
-    
-}
-
-
-#tableau > div {
-    height: 15rem; 
-    width: 10rem; 
+.spade, .heart, .club, .diamond {
     border: 1px solid black;
-    display: inline-block;
-    margin-top: 18rem;
-    margin-right: 400px;
-    margin-left: -350px;
-    ;
+    border-radius: .5rem;
+    height: 11rem;
+    width: 8rem;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+
 }
 
 
-button that deals cards in appropritate divs and w/ appropriate amounts 
-click button 
-grab deck
-
-divide like so: split? splice? slice? 
-arr 1 = 1 card 
-arr 2 = 2
-arr 3 = 3
-arr 4 = 4
-arr 5 = 5
-arr 6 = 6
-arr 7 = 7
-stock = 24
-
-1. Card deck; process, challenges, references. https://www.youtube.com/watch?v=NxRwIZWjLtE&t=1899s; https://www.thatsoftwaredude.com/content/6196/coding-a-card-deck-in-javascript
-    editiing the HTML to include card-front and card-back as extra divs
-    making the deck in a separate JS file for other projects but moving it into app.js anyway because my intuition told me it was getting buggy 
-2. Game board setup. How i separated my divs and table. how i used grid and flexbox. 
-3. arrays
-    getting into 8 different arrays 
-    splice method 
-    why i use arrays 
-4. card rendering
-    how an object like a card gets physically rendered on screen. 
-        dot notation 
-        not getting right cards up front/ does not reflect array; 
-
-
-css and HTML for flip cards 
-
-      <!-- <div class="card-flip">
-                <div class="card-flip-inner">
-                    <div class="card-flip-front card-front"></div>
-                    <div class="card-flip-back card-back">Back</div>
-                    
-                    </div>
-                </div>
-            </div> -->
-FLIPPING THE CARDS
-
-/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
- .card-flip {
-    background-color: transparent;
-    width: 300px;
-    height: 200px;
-    border: 1px solid #f1f1f1;
-    perspective: 1000px;  /* Remove this if you don't want the 3D effect   */
-} 
-  
-  /* This container is needed to position the front and back side */
-  .card-flip-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-  } 
-  
-  /* Do an horizontal flip when you move the mouse over the flip box container */
-   .card-flip:hover .card-flip-inner {
-    transform: rotateY(180deg);
-  }
-   
-  /* Position the front and back side */
-  .card-flip-front, .card-flip-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden; /*Safari  */
-    backface-visibility: hidden; 
-} 
-  
-  /* Style the back side */
-  .card-flip-back {
+.stock {
+    font-family: 'Calistoga', cursive;
+    display: flex;
     height: 11rem; 
     width: 10rem; 
+    border: 1px solid black; 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    border-radius: .5rem;
+    color: rgba(243, 246, 227, 0.999);
+    cursor: pointer;
+}
+
+.waste {
+    font-family: 'Calistoga', cursive;
+    display: flex; 
+    height: 11rem; 
+    width: 10rem; 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black; 
+    border-radius: .5rem;
+    right: 200px;
+    padding: 1px;
+    cursor: pointer;
+}
+
+#waste, #stock {
+    align-self: flex-start;
+}
+
+.tableau {
+    display: flex;
+}
+
+.tab {
+    display: flex;
+}
+
+ /* #tableau > div {
+    height: 15rem; 
+    width: 10rem; 
+    border: 1px solid black;
+    display: inline-block;
+    cursor: pointer;
+}  */
+
+.space {
+    height: 9rem; 
+    width: 9rem; 
+    color: black;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    display: inline-block; 
+    flex-direction: row;
+}
+
+/* @layer .space-2 {
+    main {
+        display: grid;
+    }
+}
+
+@layer {
+    
+} */
+
+/* cards */
+
+    .hide {
+        display:none; 
+    }
+
+
+ /* .card-front, .card-back  {
+        position: relative;
+        height: 11rem;
+        width: 10rem;
+        border: 1px solid black;
+        border-radius: .5rem;
+        display: flex; 
+        justify-content: center;
+        align-items: center; 
+    }   */
+
+    .card {
+        display: none;
+    }
+  .card-back {
+    height: 8rem; 
+    width: 7rem; 
     border: 1px solid black; 
     display: flex; 
     justify-content: center;
@@ -334,201 +332,331 @@ FLIPPING THE CARDS
     background-position: center;
     background-size: cover;
     font-display: none;
-  } 
+    cursor: pointer;
+}  
 
-  /* Style the front side (fallback if image is missing) */
- .card-flip-front {
-    height: 11rem; 
-    width: 10rem; 
-    border: 1px solid black; 
+/* .card-front:hover {
+    transform: rotateY(180deg);
+} */
+
+.card-front  {
+    position: relative;
+    height: 8rem;
+    width: 7rem;
+    border: 1px solid black;
+    border-radius: .5rem;
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
     font-size: 4rem;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 100%;
+    background-color: rgba(15, 89, 209, 0.999);;
+    cursor: pointer;
+}
+
+.card.red {
+    color: red;
     background-color: white;
-  } 
+}
+.card.black {
+    color: black; 
+    background-color: white;
+}
 
-  data-value="6 ♥️ 6♥️
+.card-front::before, .card-front::after { /* before and after the NUMBER and SUIT not the flip */
+    position: absolute;
+    content: attr(data-value);
+    font-size: 1rem; 
+}
 
-  clipboard API
+.card-front::before {
+    top: .5rem; 
+    left: .5rem;
+}
 
-      navigator.clipboard
-        .readText(card)
-        .then(
-            (clipText) =>
-            (document.querySelector(".waste").innerText +=
-                clipText)
-        );
+.card-front::after {
+    bottom: .5rem; 
+    right: .5rem;
+    transform: rotate(180deg);
+}
+
+const SUITS = ["♠️", "♣️", "♥️", "♦️"]
+const VALUES = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
+
+//https://www.youtube.com/watch?v=NxRwIZWjLtE&t=1900s
 
 
-: 
-Card {suit: '♠️', value: '5'}
-1
-: 
-Card {suit: '♦️', value: 'Q'}
-2
-: 
-Card {suit: '♦️', value: 'K'}
-3
-: 
-Card {suit: '♦️', value: '5'}
-4
-: 
-Card {suit: '♠️', value: 'J'}
-5
-: 
-Card {suit: '♥️', value: '7'}
-6
-: 
-Card {suit: '♦️', value: 'A'}
-7
-: 
-Card {suit: '♠️', value: '2'}
-8
-: 
-Card {suit: '♠️', value: 'Q'}
-9
-: 
-Card {suit: '♥️', value: '5'}
-10
-: 
-Card {suit: '♠️', value: 'K'}
-11
-: 
-Card {suit: '♣️', value: '8'}
-12
-: 
-Card {suit: '♥️', value: '9'}
-13
-: 
-Card {suit: '♣️', value: '5'}
-14
-: 
-Card {suit: '♦️', value: '2'}
-15
-: 
-Card {suit: '♦️', value: '9'}
-16
-: 
-Card {suit: '♣️', value: 'A'}
-17
-: 
-Card {suit: '♥️', value: '8'}
-18
-: 
-Card {suit: '♦️', value: '8'}
-19
-: 
-Card {suit: '♦️', value: 'J'}
-20
-: 
-Card {suit: '♦️', value: '7'}
-21
-: 
-Card {suit: '♥️', value: 'J'}
-22
-: 
-Card {suit: '♣️', value: '6'}
-23
-: 
-Card {suit: '♠️', value: '7'}
+class Deck {
+    constructor(cards = newDeck()) {
+        this.cards = cards;
+    }
 
-function drop_handler() {
+    get numberOfCards() {
+        return this.cards.length
+    }
+
+    shuffle() {
+        for (let i = this.numberOfCards - 1; i > 0; i--) { 
+            const newIndex = Math.floor(Math.random() * (i + 1)) //gives us placement inside deck that is somewhere else; 
+            const oldValue = this.cards[newIndex] //flip values at new index w/ current index
+            this.cards[newIndex] = this.cards[i]
+            this.cards[i] = oldValue
+        }
+    }
+}
+
+class Card {
+    constructor(suit, value) {
+        this.suit = suit; 
+        this.value = value; 
+    }
+}
+
+function newDeck() {
+    return SUITS.flatMap(suit => { //condenses multiple arrays in arrays into one array. returns an array of arrays, 
+        return VALUES.map(value => { //loop through all our values and map them into array. and then condenses it into a single array 
+            return new Card(suit, value)
+        })
+    })
+}
+
+function getColor() {
+    return this.suit === "♣️" || this.suit == "♠️" ? 'black' : 'red';
+}
+
+function getHTML() {
+    const cardDiv = document.createElement('div')
+    cardDiv.innerText = this.suit
+    cardDiv.classList.add("card", this.color)
+    cardDiv.dataset.value = `${this.value} ${this.suit}`
+    return cardDiv
+}
+
+const deck = new Deck()
+deck.shuffle()
+console.log(deck.cards)
+
+
+
+//CLASSES
+
+//OBJECTS AND ARRAYS
+const startPile = [];
+const stockPile =  [];
+const wastePile = [];
+
+const spadeFound = [];
+const heartFound = [];
+const clubFound = [];
+const diamondFound = [];
+
+const foundations = [spadeFound, heartFound, clubFound, diamondFound]
+
+const arr0 = [];
+const arr1 = [];
+const arr2 = [];
+const arr3 = [];
+const arr4 = [];
+const arr5 = [];
+const arr6 = [];
+
+const tableau = [arr0, arr1, arr2, arr3, arr4, arr5, arr6];
+
+//what i've used so far 
+const startGame = document.querySelector('.start-button');
+const spaces = document.querySelectorAll('.space')
+const col1 = document.querySelector('#space-1');
+const col2 = document.querySelector('#space-2');
+const col3 = document.querySelector('#space-3');
+const col4 = document.querySelector('#space-4');
+const col5 = document.querySelector('#space-5');
+const col6 = document.querySelector('#space-6');
+const col7 = document.querySelector('#space-7');
+const columns = [col1, col2, col3, col4, col5, col6, col7];
+const playingCard = document.getElementById('#card');
+// const cardBack = document.querySelector('.card-back');
+const cardFront = document.querySelector('.card-front');
+const stock = document.querySelector('.stock');
+const waste = document.querySelector('.waste');
+const wasteCard = document.querySelector('#wasteCard')
+const tableauEl = document.querySelector('.tableau');
+const tableauEls = document.querySelector('.tab');
+const spade = document.querySelector('.spade');
+const diamond = document.querySelector('.diamond');
+const club = document.querySelector('.club');
+const heart = document.querySelector('.heart');
+
+
+startGame.addEventListener('click', function () {
     
-}// arr2[0].node.classList.replace('card-back', 'card-front');
-    // arr2[1].node.classList.replace('card-back', 'card-front');
+    dealCards();
+    console.log('clicked', [stockPile], [arr6], [arr5], [arr4], [arr3], [arr2], [arr1], [arr0]);
+});
 
-    // arr3[0].node.classList.replace('card-back', 'card-front');
-    // arr3[1].node.classList.replace('card-back', 'card-front');
-    // arr3[2].node.classList.replace('card-back', 'card-front');
+//DEALING CARDS IN APPROPRIATE PLACES
 
-    // arr4[0].node.classList.replace('card-back', 'card-front');
-    // arr4[1].node.classList.replace('card-back', 'card-front');
-    // arr4[2].node.classList.replace('card-back', 'card-front');
-    // arr4[3].node.classList.replace('card-back', 'card-front');
-
-    // arr5[0].node.classList.replace('card-back', 'card-front');
-    // arr5[1].node.classList.replace('card-back', 'card-front');
-    // arr5[2].node.classList.replace('card-back', 'card-front');
-    // arr5[3].node.classList.replace('card-back', 'card-front');
-    // arr5[4].node.classList.replace('card-back', 'card-front');
+function dealCards() {
+    for (cards in deck) {
+        //deck.cards.length -= 24;
+        //deck.cards.splice(0, 24);
+        const deal = stockPile.push(deck.cards.splice(0,24));//can push 24 cards to stock array but cant ge
+        console.log(deck.cards)
+        const deal2 = arr6.push(...deck.cards.splice(0,7));//7
+        //console.log(deck.cards.length)
+        const deal3 = arr5.push(...deck.cards.splice(0, 6)); //6
+        //console.log(deck.cards.length)
+        const deal4 = arr4.push(...deck.cards.splice(0,5)); //5
+        const deal5 = arr3.push(...deck.cards.splice(0,4)); //4
+        const deal6 = arr2.push(...deck.cards.splice(0,3)); //3
+        const deal7 = arr1.push(...deck.cards.splice(0,2)); //2
+        const deal8 = arr0.push(...deck.cards.splice(0,1)); //1
     
-    // arr6[0].node.classList.replace('card-back', 'card-front');
-    // arr6[1].node.classList.replace('card-back', 'card-front');
-    // arr6[2].node.classList.replace('card-back', 'card-front');
-    // arr6[3].node.classList.replace('card-back', 'card-front');
-    // arr6[4].node.classList.replace('card-back', 'card-front');
-    // arr6[5].node.classList.replace('card-back', 'card-front');
+        
+    } 
+    renderCards();
+    flipLastCard();
+}
 
-    let arr = [[arr0, arr1, arr2, arr3, arr4, arr5, arr6]];
-// function flipCards(i) {
-//     for (let i = 0; i > tableauEls.length; i++) {
-//         //const cardBack = document.querySelector('.card-back');
-//         if (card !== 'card-front') {
-//             card.classList.replace('card-back', 'card-front')
-//         }
-//     }
+function renderCards() {
+    columns.forEach((column, idx) => {
+
+        stock.textContent = stockPile.suit + stockPile.value;
+        stock.classList.add('card-back');
+        stock.setAttribute("node", "card-front")
+        const arr = tableau[idx]
+        //console.log(arr)
+        arr.forEach((card, i) => {
+            const cardDiv = document.createElement('div')
+            cardDiv.textContent = card.suit + card.value
+            cardDiv.classList.add('card-back'); 
+            tableau[idx][i].node = cardDiv;
+            cardDiv.setAttribute('draggable', "true")
+            // cardDiv.getAttribute("class", "card-front")
+            column.append(cardDiv)
+            
+        })   
+        
+    })
+}
+
+function flipLastCard() {
+        arr0[arr0.length -1].node.classList.replace('card-back', 'card-front');           
+    console.log(arr0[arr0.length - 1])
     
-//     console.log('clicked')
+        arr1[arr1.length -1].node.classList.replace('card-back', 'card-front');           
+    console.log(arr1[arr1.length - 1]
+    )
+        arr2[arr2.length -1].node.classList.replace('card-back', 'card-front');           
+    console.log(arr2[arr2.length - 1])
+    
+        arr3[arr3.length -1].node.classList.replace('card-back', 'card-front');           
+    console.log(arr3[arr3.length - 1])
+    
+        arr4[arr4.length -1].node.classList.replace('card-back', 'card-front');           
+    console.log(arr4[arr4.length - 1])
+    
+        arr5[arr5.length -1].node.classList.replace('card-back', 'card-front');           
+    console.log(arr5[arr5.length - 1])
+    
+    arr6[arr6.length - 1].node.classList.replace('card-back', 'card-front'); 
+    console.log(arr6[arr6.length  -1])
+}
+//FLIPPING OVER STOCK PILE 
+
+stock.addEventListener('click', function () {
+    flipOverStock();
+     console.log('clicked')
+})
+
+function flipOverStock() {
+    if (stockPile[0].length > 0) {
+        stockPile[0].shift(stockPile[0][0]);
+        let wasteCard = document.createElement('div')
+        wasteCard = wastePile.push(stockPile[0][0]);
+        //wastePile.node = wasteCard
+        //displaying card in wastePile
+        wastePile.forEach((card) => {
+            //wastePile.node = wasteCard
+            waste.textContent = card.suit + card.value;
+            waste.append('.card-front');
+        });
+    } else {
+        if (stockPile[0].length === 0) {
+            //wastePile.replace(cardFront, )
+            stockPile[0].push(wastePile['every'])
+        }
+    }
+}
+
+// tableauEls.addEventListener('click', flipCards); {
+ 
 // }
 
-// let arr = [[arr0, arr1, arr2, arr3, arr4, arr5, arr6]];
-// function flipCards(i) {
-//     for (let i = 0; i > tableauEls.length; i++) {
-//         //const cardBack = document.querySelector('.card-back');
-//         if (card !== 'card-front') {
-//             card.classList.replace('card-back', 'card-front')
-//         }
-//     }
+// function flipCards() {
+//     arr1[0].node.classList.replace('card-back', 'card-front');
+
+//     arr2[0].node.classList.replace('card-back', 'card-front');
+//     arr2[1].node.classList.replace('card-back', 'card-front');
+
+//     arr3[0].node.classList.replace('card-back', 'card-front');
+//     arr3[1].node.classList.replace('card-back', 'card-front');
+//     arr3[2].node.classList.replace('card-back', 'card-front');
+
+//     arr4[0].node.classList.replace('card-back', 'card-front');
+//     arr4[1].node.classList.replace('card-back', 'card-front');
+//     arr4[2].node.classList.replace('card-back', 'card-front');
+//     arr4[3].node.classList.replace('card-back', 'card-front');
+
+//     arr5[0].node.classList.replace('card-back', 'card-front');
+//     arr5[1].node.classList.replace('card-back', 'card-front');
+//     arr5[2].node.classList.replace('card-back', 'card-front');
+//     arr5[3].node.classList.replace('card-back', 'card-front');
+//     arr5[4].node.classList.replace('card-back', 'card-front');
     
-//     console.log('clicked')
+//     arr6[0].node.classList.replace('card-back', 'card-front');
+//     arr6[1].node.classList.replace('card-back', 'card-front');
+//     arr6[2].node.classList.replace('card-back', 'card-front');
+//     arr6[3].node.classList.replace('card-back', 'card-front');
+//     arr6[4].node.classList.replace('card-back', 'card-front');
+//     arr6[5].node.classList.replace('card-back', 'card-front');
+
 // }
 
 
-//const tableauElsDiv = document.createElement('div')
-   // arr.node.textContent.add('card-front');
-// tableauEls[i].node = cardDiv;
-// cardDiv.textContent = card.suit + card.value
-// if(tableauels.textContent)
-//         //cardDiv.classList.add('card-back'); 
-//         cardDiv.setAttribute('draggable', "true")
-//         column.append(cardDiv)
-//         tableauEls.arr.node.classList.replace('card-back', 'card-front');
+tableauEl.addEventListener('dragstart', dragstart_handler); 
+tableauEl.addEventListener('dragend', dragend_handler);
+spade.addEventListener('drop', drop_handler); 
+heart.addEventListener('drop', drop_handler); 
+club.addEventListener('drop', drop_handler); 
+diamond.addEventListener('drop', drop_handler); 
 
-// arr.forEach((card, i) => {
-//     const cardDiv = document.createElement('div')
-//     cardDiv.textContent = card.suit + card.value
-//     cardDiv.classList.add('card-back'); 
-//     tableau[idx][i].node = cardDiv;
-//     cardDiv.setAttribute('draggable', "true")
-//     // cardDiv.getAttribute("class", "card-front")
-//     column.append(cardDiv)
+    function dragstart_handler(ev) {
+        ev.dataTransfer.setData("text/plain", ev.target.textContent)
+        console.log(ev.target)
+    }
 
-// function dragCards() {
-//     const singleCard = document.createElement('div');
-//     singleCard.textContent = card.suit + card.value
-//     tableau.node = singleCard;
+    function dragover_handler(ev) {
+        ev.preventDefault();
+        ev.dataTransfer.dropEffect = 'move'
+    }
 
-//     arr0.splice(0, 1); //gets face up card in array. 
-//     arr1.splice(1, 1); //gets face up card in array. 
-//     arr2.splice(2, 1); //gets face up card in array. 
-//     arr3.splice(3, 1); //gets face up card in array. 
-//     arr4.splice(4, 1); //gets face up card in array. 
-//     arr5.splice(5, 1); //gets face up card in array. //make instance of card class??
-//     arr6.splice(6, 1); //gets face up card in array. 
-// }
-
-
-//div.card-front & back are child nodes
- //looping through tableau to find cards w/ card-front value so I can click on it and drag only
-    //that card and not the entire container holding the rest
-
+function dragend_handler(ev) {
+    ev.preventDefault();
     
-    //arr1[arr1.length -1]--> location of face up in 2nd column (i think)
+    function checkText(text) {
+        const arr = [arr0, arr1, arr2, arr3, arr4, arr5, arr6];
+        if (arr[0] <= 10) {
+            ev.target.append(document.getElementById('#foundation'))
+            }
+     
+    }
+    checkText();
+}
 
-
-
-        // const found = arr1.find((arr1) => {
-        //     return arr1.value 
-        // })
-        // console.log(found)
+    function drop_handler(ev) {
+        ev.preventDefault();
+        const data = ev.dataTransfer.getData('text/plain');
+        console.log(data)
+        //ev.target.append(document.getElementById('#black-hole'))
+        }
+        
+    
