@@ -40,7 +40,7 @@ For the future:
 5. Add win/lose logic by using conditionals 
 
 
-
+----------CODE THAT HAS BEEN SCRAPPED-----------
 
 
 
